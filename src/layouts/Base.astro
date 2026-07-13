@@ -43,7 +43,7 @@ const canonical = new URL(Astro.url.pathname, site.url);
     <script is:inline>
       // Before paint: only opt into animation initial-states when JS runs
       // AND the user hasn't asked for reduced motion. Otherwise content
-      // stays fully visible — no reveal, no flash, nothing to miss.
+      // stays fully visible: no reveal, no flash, nothing to miss.
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.documentElement.classList.add('motion-ok');
       }

@@ -1,17 +1,11 @@
 ---
 import SplitLines from './SplitLines.astro';
-import { site } from '../lib/site';
 ---
 
 <section
-  class="relative flex flex-col justify-start px-5 pt-28 pb-12 sm:min-h-svh sm:justify-end sm:px-8 sm:pt-32 sm:pb-14"
+  class="relative flex flex-col justify-start px-5 pt-14 pb-12 sm:min-h-svh sm:justify-end sm:px-8 sm:pt-20 sm:pb-16"
 >
   <div class="hero-atmosphere pointer-events-none absolute inset-0" aria-hidden="true"></div>
-
-  <p class="voice-mono text-mute mb-6" data-reveal data-reveal-group="hero">
-    <span class="text-accent">●</span>
-    Index of shipped work — {site.location}
-  </p>
 
   <h1 class="voice-display text-[clamp(3.1rem,12.5vw,12rem)]">
     <SplitLines trigger="load" lines={['Jasper', 'Meijerink']} />
@@ -40,16 +34,4 @@ import { site } from '../lib/site';
       <div class="flex justify-between gap-6"><dt>Status</dt><dd class="text-accent">Open to opportunities</dd></div>
     </dl>
   </div>
-
-  <a
-    href="/#work"
-    class="voice-mono text-mute hover:text-ink group mt-12 inline-flex w-fit items-center gap-3 transition-colors duration-200"
-    data-reveal
-    data-reveal-group="hero"
-  >
-    Scroll for the index
-    <span
-      class="bg-accent block h-px w-14 origin-left transition-transform duration-200 group-hover:scale-x-150"
-      aria-hidden="true"></span>
-  </a>
 </section>

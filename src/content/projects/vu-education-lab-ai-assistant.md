@@ -5,7 +5,7 @@ description: Chrome extension that turns webpages and PDFs into summaries, quizz
 index: 1
 featured: true
 status: In production
-period: 2025 — present
+period: 2025 - present
 stack:
   [JavaScript, Chrome Extension, Node.js, Express, Azure, Azure OpenAI, Gemini]
 links:

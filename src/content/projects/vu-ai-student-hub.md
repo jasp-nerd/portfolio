@@ -5,7 +5,7 @@ description: Community study platform covering all 35 courses of the BSc AI at V
 index: 2
 featured: true
 status: Live · community-driven
-period: 2025 — present
+period: 2025 - present
 stack:
   [React 19, Next.js 16, TypeScript, Tailwind CSS 4, OpenRouter, KaTeX, Vercel]
 links:

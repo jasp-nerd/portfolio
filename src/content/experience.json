@@ -1,10 +1,10 @@
 [
   {
     "id": "siemens",
-    "role": "Data Science & AI — Working Student",
+    "role": "Data Science & AI - Working Student",
     "org": "Siemens Nederland N.V.",
     "place": "The Hague",
-    "period": "Mar 2026 — present",
+    "period": "Mar 2026 - present",
     "kind": "work",
     "order": 1,
     "points": [
@@ -14,10 +14,10 @@
   },
   {
     "id": "aiso",
-    "role": "AI Engineer — Platform & Automations",
+    "role": "AI Engineer - Platform & Automations",
     "org": "AISO",
     "place": "Amsterdam",
-    "period": "Apr 2026 — present",
+    "period": "Apr 2026 - present",
     "kind": "work",
     "order": 2,
     "points": [
@@ -29,7 +29,7 @@
     "role": "AI Engineer",
     "org": "Ecochain (B Corp)",
     "place": "Amsterdam",
-    "period": "Apr — Jun 2026",
+    "period": "Apr - Jun 2026",
     "kind": "work",
     "order": 3,
     "points": [
@@ -38,10 +38,10 @@
   },
   {
     "id": "vu-ctl",
-    "role": "Student Assistant — AI in Education",
+    "role": "Student Assistant - AI in Education",
     "org": "VU Centre for Teaching & Learning",
     "place": "Amsterdam",
-    "period": "Mar 2025 — present",
+    "period": "Mar 2025 - present",
     "kind": "work",
     "order": 4,
     "points": [
@@ -56,7 +56,7 @@
     "role": "Honours Evaluation Committee",
     "org": "Vrije Universiteit Amsterdam",
     "place": "Amsterdam",
-    "period": "Dec 2025 — present",
+    "period": "Dec 2025 - present",
     "kind": "community",
     "order": 5,
     "points": [
@@ -68,7 +68,7 @@
     "role": "BSc Artificial Intelligence (Honours)",
     "org": "Vrije Universiteit Amsterdam",
     "place": "Intelligent Systems track",
-    "period": "2024 — 2027 (exp.)",
+    "period": "2024 - 2027 (exp.)",
     "kind": "education",
     "order": 6,
     "points": [

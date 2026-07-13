@@ -62,6 +62,8 @@ html[data-theme="paper"] {
 
 html {
   scroll-behavior: smooth;
+  /* clip on the root, not just body: iOS pans the root element sideways */
+  overflow-x: clip;
   @media (prefers-reduced-motion: reduce) {
     scroll-behavior: auto;
   }
@@ -157,25 +159,6 @@ html.motion-ok .split-line > .split-inner {
     auto,
     30px 30px;
   mask-image: linear-gradient(to bottom, black 62%, transparent);
-}
-
-/* marquee belt */
-.ticker-track {
-  display: flex;
-  width: max-content;
-  animation: ticker 28s linear infinite;
-}
-
-@keyframes ticker {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ticker-track {
-    animation: none;
-  }
 }
 
 /* ------------------------------------------------------------------
