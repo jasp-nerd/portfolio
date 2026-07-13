@@ -1,13 +1,13 @@
 export const site = {
   name: "Jasper Meijerink",
   handle: "jasp-nerd",
-  role: "AI Engineer in training",
+  role: "AI & Data Science @ Siemens | AI Honours student @ VU Amsterdam",
   location: "Amsterdam, NL",
   domain: "jaspnerd.dev",
   url: "https://jaspnerd.dev",
-  title: "Jasper Meijerink — AI student building things that ship",
+  title: "Jasper Meijerink — AI & data science, shipped",
   description:
-    "Portfolio of Jasper Meijerink: BSc Artificial Intelligence (Honours) student at VU Amsterdam, working student AI & Data Science at Siemens. Twelve shipped projects across AI/ML, full-stack and automation.",
+    "Portfolio of Jasper Meijerink: AI & Data Science at Siemens, BSc AI (Honours) at VU Amsterdam. Computer vision, LLM pipelines and full-stack tools in real hands, including a Canvas backup extension with 4,000+ users.",
   email: "jasper.meijerink@outlook.com",
   github: "https://github.com/jasp-nerd",
   linkedin: "https://www.linkedin.com/in/jasper-meij-ai",
@@ -25,8 +25,8 @@ export const nav = [
 export const ticker = [
   "AI & Data Science @ Siemens",
   "BSc AI (Honours) @ VU Amsterdam",
-  "12 projects shipped",
-  "2 extensions on Chrome Web Store",
-  "AI literacy workshops for 100+ faculty",
+  "Canvas tool: 4,000+ users",
+  "AI workshops for 300+ faculty",
+  "Prosus × AISO hackathon finalist",
   "Based in Amsterdam",
 ] as const;

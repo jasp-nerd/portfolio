@@ -6,21 +6,29 @@
    ------------------------------------------------------------------ */
 
 :root {
-  /* lab (dark) surface */
-  --surface-bg: #0e0d0b;
-  --surface-ink: #efeae0;
-  --surface-mute: #9a9285;
-  --surface-line: rgba(239, 234, 224, 0.14);
-  --surface-card: rgba(239, 234, 224, 0.03);
+  /* "Violet Ink" — violet-tinted dark ground, lavender accent, gold garnish.
+     All pairs contrast-verified: ink 14.5:1, mute 7.0:1, accent 7.9:1, gold 9.4:1. */
+  --surface-bg: #1a1821;
+  --surface-elevated: #23212c;
+  --surface-ink: #eae8f0;
+  --surface-mute: #a5a2b1;
+  --surface-line: rgba(234, 232, 240, 0.14);
+  --surface-card: rgba(234, 232, 240, 0.035);
+  --surface-accent: #b7a0f8;
+  --surface-gold: #d7ba7d;
   color-scheme: dark;
 }
 
 html[data-theme="paper"] {
-  --surface-bg: #f3efe6;
-  --surface-ink: #17130e;
-  --surface-mute: #6e675b;
-  --surface-line: rgba(23, 19, 14, 0.16);
-  --surface-card: rgba(23, 19, 14, 0.035);
+  /* warm paper + plum ink; violet deepened to hold 6:1 on the light ground */
+  --surface-bg: #f9f6f2;
+  --surface-elevated: #ffffff;
+  --surface-ink: #261f28;
+  --surface-mute: #6b6472;
+  --surface-line: rgba(38, 31, 40, 0.16);
+  --surface-card: rgba(38, 31, 40, 0.03);
+  --surface-accent: #7444b4;
+  --surface-gold: #8a6d2f;
   color-scheme: light;
 }
 
@@ -29,17 +37,18 @@ html[data-theme="paper"] {
   --font-serif: "Instrument Serif", Georgia, serif;
   --font-mono: "Spline Sans Mono Variable", ui-monospace, monospace;
 
-  --color-accent: #ff4d00;
-
   --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 @theme inline {
   --color-bg: var(--surface-bg);
+  --color-elevated: var(--surface-elevated);
   --color-ink: var(--surface-ink);
   --color-mute: var(--surface-mute);
   --color-card: var(--surface-card);
+  --color-accent: var(--surface-accent);
+  --color-gold: var(--surface-gold);
 }
 
 /* line color carries alpha, so expose it as a plain utility source */
@@ -74,8 +83,8 @@ body {
 }
 
 ::selection {
-  background: var(--color-accent);
-  color: #0e0d0b;
+  background: var(--surface-accent);
+  color: #1a1821;
 }
 
 :focus-visible {
@@ -133,6 +142,21 @@ html.motion-ok [data-reveal] {
 
 html.motion-ok .split-line > .split-inner {
   transform: translateY(110%);
+}
+
+/* hero atmosphere: lavender glow + faint plotting-paper dot grid */
+.hero-atmosphere {
+  background:
+    radial-gradient(
+      90rem 42rem at 78% -12%,
+      rgba(183, 160, 248, 0.13),
+      transparent 62%
+    ),
+    radial-gradient(rgba(234, 232, 240, 0.07) 1px, transparent 1px);
+  background-size:
+    auto,
+    30px 30px;
+  mask-image: linear-gradient(to bottom, black 62%, transparent);
 }
 
 /* marquee belt */

@@ -74,6 +74,23 @@ export function initMotion(): void {
     });
   });
 
+  // Schematic figures: draw strokes on when the figure scrolls into view
+  document.querySelectorAll<SVGSVGElement>(".project-figure").forEach((svg) => {
+    const paths = svg.querySelectorAll<SVGGeometryElement>(".draw");
+    paths.forEach((p) => {
+      const len = p.getTotalLength();
+      p.style.strokeDasharray = `${len}`;
+      p.style.strokeDashoffset = `${len}`;
+    });
+    gsap.to(paths, {
+      strokeDashoffset: 0,
+      duration: 1.1,
+      ease: "power2.out",
+      stagger: 0.045,
+      scrollTrigger: { trigger: svg, start: "top 88%", once: true },
+    });
+  });
+
   // Fonts settle layout after init — recompute trigger positions
   document.fonts?.ready.then(() => ScrollTrigger.refresh());
 

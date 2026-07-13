@@ -3,32 +3,40 @@ import SplitLines from './SplitLines.astro';
 import { site } from '../lib/site';
 ---
 
-<section class="relative flex min-h-svh flex-col justify-end px-5 pt-32 pb-10 sm:px-8 sm:pb-14">
+<section
+  class="relative flex flex-col justify-start px-5 pt-28 pb-12 sm:min-h-svh sm:justify-end sm:px-8 sm:pt-32 sm:pb-14"
+>
+  <div class="hero-atmosphere pointer-events-none absolute inset-0" aria-hidden="true"></div>
+
   <p class="voice-mono text-mute mb-6" data-reveal data-reveal-group="hero">
     <span class="text-accent">●</span>
     Index of shipped work — {site.location}
   </p>
 
-  <h1 class="voice-display text-[clamp(3.4rem,13.5vw,12rem)]">
+  <h1 class="voice-display text-[clamp(3.1rem,12.5vw,12rem)]">
     <SplitLines trigger="load" lines={['Jasper', 'Meijerink']} />
   </h1>
 
-  <p class="voice-serif text-ink mt-6 max-w-xl text-[clamp(1.5rem,3.2vw,2.4rem)] leading-tight" data-reveal data-reveal-group="hero">
-    builds practical <span class="text-accent">AI</span> that actually ships.
+  <p
+    class="voice-serif text-ink mt-6 max-w-xl text-[clamp(1.5rem,3.2vw,2.4rem)] leading-tight"
+    data-reveal
+    data-reveal-group="hero"
+  >
+    ships <span class="text-gold">AI</span> people can point to.
   </p>
 
   <div class="mt-10 flex flex-wrap items-end justify-between gap-8" data-reveal data-reveal-group="hero">
     <p class="text-mute max-w-md text-[15px] leading-relaxed">
-      BSc Artificial Intelligence (Honours) at VU Amsterdam. Working student AI &amp;
-      Data Science at <strong class="text-ink font-medium">Siemens</strong>. Twelve
-      projects public — two on the Chrome Web Store, several in production at a
-      university near you.
+      Second-year BSc AI (Honours) at VU Amsterdam, AI &amp; data science
+      at <strong class="text-ink font-medium">Siemens</strong>. Computer vision, LLM
+      pipelines and full-stack tools in real hands, from a teacher-facing extension
+      used across VU to a Canvas backup tool with 4,000+ users.
     </p>
 
-    <dl class="voice-mono text-mute grid grid-cols-2 gap-x-10 gap-y-2 text-right sm:text-left">
-      <div class="flex justify-between gap-6"><dt>Focus</dt><dd class="text-ink">AI / ML · Full-stack</dd></div>
-      <div class="flex justify-between gap-6"><dt>GPA</dt><dd class="text-ink">7.9 / 10 · Honours</dd></div>
-      <div class="flex justify-between gap-6"><dt>Now</dt><dd class="text-ink">Siemens · VU</dd></div>
+    <dl class="voice-mono text-mute grid w-full grid-cols-1 gap-x-10 gap-y-2 sm:w-auto sm:grid-cols-2">
+      <div class="flex justify-between gap-6"><dt>Tool users</dt><dd class="text-ink">4,000+</dd></div>
+      <div class="flex justify-between gap-6"><dt>Faculty taught</dt><dd class="text-ink">300+</dd></div>
+      <div class="flex justify-between gap-6"><dt>Now</dt><dd class="text-ink">Siemens · VU · AISO</dd></div>
       <div class="flex justify-between gap-6"><dt>Status</dt><dd class="text-accent">Open to opportunities</dd></div>
     </dl>
   </div>
@@ -40,6 +48,8 @@ import { site } from '../lib/site';
     data-reveal-group="hero"
   >
     Scroll for the index
-    <span class="bg-accent block h-px w-14 origin-left transition-transform duration-200 group-hover:scale-x-150" aria-hidden="true"></span>
+    <span
+      class="bg-accent block h-px w-14 origin-left transition-transform duration-200 group-hover:scale-x-150"
+      aria-hidden="true"></span>
   </a>
 </section>

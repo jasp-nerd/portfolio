@@ -1,42 +1,54 @@
 [
   {
     "id": "siemens",
-    "role": "Working Student — AI & Data Science",
+    "role": "Data Science & AI — Working Student",
     "org": "Siemens Nederland N.V.",
     "place": "The Hague",
     "period": "Mar 2026 — present",
     "kind": "work",
     "order": 1,
     "points": [
-      "Building AI chatbots, automating business processes and shipping AI use-cases into production for Smart Infrastructure — Buildings Service.",
-      "Translating business needs into practical AI solutions; co-creating AI roadmaps and training colleagues in AI skills.",
-      "Working with Python, JavaScript and the Microsoft Power Platform (Power Automate, Power Apps, Power BI, Copilot)."
-    ]
-  },
-  {
-    "id": "vu-edulab",
-    "role": "Student Assistant — AI in Education",
-    "org": "VU Education Lab",
-    "place": "Amsterdam",
-    "period": "Mar 2025 — present",
-    "kind": "work",
-    "order": 2,
-    "points": [
-      "Delivering AI literacy workshops to 100+ faculty across Law, Business and the Sciences.",
-      "Shipped a production Chrome extension for educators; contributing to 15+ GenAI projects with professors and staff across VU Amsterdam.",
-      "Mentored two new team members; built LLM analysis pipelines, AI chatbots and grading assistants for education."
+      "Building a computer vision pipeline for P&ID engineering diagrams: vector-based symbol detection with a custom graph clustering algorithm and VLM few-shot classification, deployed as an internal web tool.",
+      "Own the ETL pipeline for inventory reporting; resolved silent data-loss defects and expanded reporting coverage."
     ]
   },
   {
     "id": "aiso",
-    "role": "AI Impact Ambassador",
-    "org": "AISO × UvA Teaching and Learning Centre",
+    "role": "AI Engineer — Platform & Automations",
+    "org": "AISO",
     "place": "Amsterdam",
-    "period": "Nov 2025 — present",
-    "kind": "community",
+    "period": "Apr 2026 — present",
+    "kind": "work",
+    "order": 2,
+    "points": [
+      "Building AISO's AI-native stack, including a RAG chatbot over Notion databases via MCP."
+    ]
+  },
+  {
+    "id": "ecochain",
+    "role": "AI Engineer",
+    "org": "Ecochain (B Corp)",
+    "place": "Amsterdam",
+    "period": "Apr — Jun 2026",
+    "kind": "work",
     "order": 3,
     "points": [
-      "Representing the student perspective on AI in education and contributing to guidelines for responsible AI adoption in universities."
+      "Shipped an agentic document-automation pipeline for sustainability reporting: LLM extraction with per-field source citations, deployed fully local for compliance, designed to cut reporting time 50%."
+    ]
+  },
+  {
+    "id": "vu-ctl",
+    "role": "Student Assistant — AI in Education",
+    "org": "VU Centre for Teaching & Learning",
+    "place": "Amsterdam",
+    "period": "Mar 2025 — present",
+    "kind": "work",
+    "order": 4,
+    "points": [
+      "Led 15+ GenAI projects from idea to production.",
+      "Shipped a Chrome extension with an Azure backend (Google OAuth, SSE streaming, rate limiting), live on the Chrome Web Store and rolling out to educators across the university.",
+      "Built an LLM pipeline that automates qualitative coding of student reflections on fully local inference: days of manual analysis down to ~9 minutes.",
+      "Taught AI workshops to 300+ faculty and staff across three faculties."
     ]
   },
   {
@@ -46,7 +58,7 @@
     "place": "Amsterdam",
     "period": "Dec 2025 — present",
     "kind": "community",
-    "order": 4,
+    "order": 5,
     "points": [
       "Evaluating interdepartmental Honours course quality and advising on programme improvements alongside fellow students and faculty."
     ]
@@ -58,21 +70,9 @@
     "place": "Intelligent Systems track",
     "period": "2024 — 2027 (exp.)",
     "kind": "education",
-    "order": 5,
-    "points": [
-      "GPA 7.9/10 in the Honours programme, Intelligent Systems track."
-    ]
-  },
-  {
-    "id": "vwo",
-    "role": "VWO",
-    "org": "Rijnlands Lyceum Oegstgeest",
-    "place": "Oegstgeest",
-    "period": "2018 — 2024",
-    "kind": "education",
     "order": 6,
     "points": [
-      "Awarded \"Einstein of the Year\" for outstanding STEM performance."
+      "Honours programme, Intelligent Systems track. Finalist at the Prosus × AISO agent hackathon; built a multimodal banking agent at bunq Hackathon 7.0."
     ]
   }
 ]

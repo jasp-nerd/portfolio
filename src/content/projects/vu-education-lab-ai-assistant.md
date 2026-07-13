@@ -1,7 +1,7 @@
 ---
 title: VU Education Lab AI Assistant
 tagline: turns any webpage into teaching material
-description: Chrome extension that transforms webpages and PDFs into summaries, quizzes and teaching ideas for university educators. Production pilot for the VU Centre for Teaching and Learning.
+description: Chrome extension that turns webpages and PDFs into summaries, quizzes and teaching ideas. Built solo from idea to production, now rolling out to educators across VU Amsterdam.
 index: 1
 featured: true
 status: In production
@@ -13,33 +13,33 @@ links:
   store: https://chromewebstore.google.com/detail/vu-education-lab-ai-assis/mehgkempbebagedafdmlkojjlmkbcgno
 specs:
   - { label: Deployment, value: "Chrome Web Store · v3.2.2" }
-  - { label: Users, value: "University educators, rolling out" }
-  - { label: Providers, value: "Azure OpenAI + Gemini, dual" }
+  - { label: Rollout, value: "Educators across VU Amsterdam" }
+  - { label: Backend, value: "Azure · OAuth · SSE streaming" }
   - { label: Privacy, value: "GDPR compliant, no data stored" }
 ---
 
 ## The problem
 
-University teachers want to use generative AI to prepare course material, but pasting
-content into chat interfaces is slow, and most tools ignore the educational framing:
-what level are the students, what kind of quiz, what teaching format?
+Teachers at VU wanted to use generative AI for course prep, but pasting content into a
+chat window is slow and ignores the educational framing: which student level, what
+kind of quiz, which teaching format. The VU Centre for Teaching and Learning wanted a
+tool that meets teachers where they already work.
 
 ## What I built
 
-A Chrome extension, piloted by the VU Centre for Teaching and Learning, that works
-directly on whatever the teacher is reading. Any webpage or in-browser PDF becomes raw
-material for five tools: summaries, quizzes (multiple choice, true/false, short answer),
-concept explanations at adjustable levels, teaching ideas (lectures, discussions,
-activities, assessments), and custom prompts built on educational templates.
+A Chrome extension that works on whatever the teacher is reading. Any webpage or
+in-browser PDF becomes raw material for five tools: summaries, quizzes (multiple
+choice, true/false, short answer), concept explanations at adjustable levels, teaching
+ideas, and custom prompts built on educational templates. It answers in English or
+Dutch, matching the language of the source.
 
-The backend is a Node.js/Express service on Azure with **dual-provider AI** — Azure
-OpenAI and Google Gemini with seamless switching — behind Google OAuth restricted to
-`@vu.nl` accounts. The extension answers in English or Dutch, automatically matching
-the language of the source material.
+I built the full stack solo: the extension itself plus a Node.js/Express backend on
+Azure with Google OAuth restricted to vu.nl accounts, SSE streaming for responses,
+rate limiting, and dual AI providers (Azure OpenAI and Gemini) behind one interface.
 
 ## Outcome
 
-Live on the Chrome Web Store as a production pilot (v3.2.2), rolling out to educators
-across the university. GDPR compliant with no data storage, and it runs on Chrome,
-Brave and Edge. It is the project that taught me what "production" actually means:
-OAuth flows, quota handling, versioned releases and real users with real deadlines.
+Live on the Chrome Web Store at v3.2.2 and rolling out to educators across the
+university. GDPR compliant, stores no user data, runs on Chrome, Brave and Edge. This
+project taught me what production means: OAuth flows, quota handling, versioned
+releases, and users with deadlines.

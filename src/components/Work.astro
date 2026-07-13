@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import SectionHead from './SectionHead.astro';
+import ProjectFigure from './ProjectFigure.astro';
 
 const featured = (await getCollection('projects', ({ data }) => data.featured)).sort(
   (a, b) => a.data.index - b.data.index,
@@ -17,12 +18,17 @@ const pad = (n: number) => String(n).padStart(2, '0');
         <li class="border-line border-b">
           <a
             href={`/projects/${id}/`}
-            class="group card-hover -mx-3 grid gap-x-8 gap-y-4 rounded-lg border border-transparent px-3 py-8 sm:py-10 lg:grid-cols-[auto_1.35fr_1fr]"
+            class="group card-hover -mx-3 grid gap-x-8 gap-y-5 rounded-lg border border-transparent px-3 py-8 sm:py-10 lg:grid-cols-[auto_13rem_1.35fr_1fr]"
             data-reveal
           >
             <span class="voice-mono text-accent pt-2" aria-hidden="true">
               {pad(data.index)}
             </span>
+
+            <div class="border-line text-mute relative hidden aspect-square self-start rounded-lg border p-4 lg:block">
+              <ProjectFigure id={id} />
+              <span class="voice-mono absolute bottom-2 left-3 text-[9px] opacity-70">fig. {pad(data.index)}</span>
+            </div>
 
             <div>
               <h3 class="voice-display text-[clamp(1.7rem,4vw,3rem)]">{data.title}</h3>

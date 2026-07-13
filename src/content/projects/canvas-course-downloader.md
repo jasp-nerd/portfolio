@@ -1,42 +1,45 @@
 ---
 title: Canvas Course Downloader
 tagline: your whole degree, one ZIP file
-description: Chrome extension that bulk-downloads Canvas LMS courses into organized folders — no API tokens needed. Public on the Chrome Web Store with 40+ users.
-index: 4
+description: Open-source Chrome extension that backs up entire Canvas LMS courses into organized folders. 4,000+ users and outside contributors submitting features.
+index: 3
 featured: true
-status: Public · 40+ users
+status: 4,000+ users
 stack: [JavaScript, Chrome APIs, Manifest V3, JSZip]
 links:
   github: https://github.com/jasp-nerd/canvas-course-downloader
   store: https://chromewebstore.google.com/detail/canvas-course-downloader/mmnmcnffbkcnhcjiidmdnaclpfeekiol
 specs:
-  - { label: Auth, value: "Session cookies — zero setup" }
-  - { label: Modes, value: "4 presets + custom config" }
-  - { label: Scope, value: "Any Canvas instance, multi-course" }
-  - { label: Browsers, value: "Chrome · Edge · Brave · Firefox" }
+  - { label: Users, value: "4,000+ and growing" }
+  - { label: Contributors, value: "Active, unsolicited PRs" }
+  - { label: Auth, value: "Session cookies, zero setup" }
+  - { label: Scope, value: "Any Canvas instance" }
 ---
 
 ## The problem
 
-When a course ends, its Canvas page eventually disappears — with the lecture slides,
-assignments and readings you paid tuition for. Downloading it all by hand means
-clicking through hundreds of files, and existing tools demand API tokens most
-students can't even generate.
+When a course ends, its Canvas page disappears, and with it the slides, assignments
+and readings you paid tuition for. Backing up by hand means clicking through hundreds
+of files. The existing tools demanded API tokens most students can't even generate.
+
+I needed local backups and a way to feed course material into AI tools. Nothing good
+existed, so I built it for myself.
 
 ## What I built
 
-A Chrome extension that archives entire Canvas courses using nothing but your existing
-session cookies. Pick courses from a term-grouped selector, choose a preset — Full
-Archive, Files Only, Text Only or Linked Only — and it walks the course structure,
-finds embedded files hiding in assignments, pages, announcements and discussions,
-and bundles everything into organized ZIP folders with JSZip.
-
-Incremental mode skips previously downloaded files, grades export to CSV, throttling
-is configurable so you don't hammer the server, and it works on any Canvas instance
-including self-hosted ones, across Chrome, Edge, Brave and Firefox.
+A Chrome extension that archives entire Canvas courses using your existing session
+cookies. You pick courses from a term-grouped selector, choose a preset (Full Archive,
+Files Only, Text Only or Linked Only), and it walks the course structure, finds files
+embedded in assignments, pages, announcements and discussions, and bundles it all into
+organized ZIP folders. Incremental mode skips what you already downloaded, grades
+export to CSV, and configurable throttling keeps the load on Canvas polite. It runs on
+Chrome, Edge, Brave and Firefox, against any Canvas instance including self-hosted ones.
 
 ## Outcome
 
-Public on the Chrome Web Store with 40+ users and growing — my second shipped
-extension, and a lesson in designing for the least technical user: the whole point
-was removing the API-token step that every alternative required.
+I open-sourced it, put it on the Chrome Web Store, and moved on. Then users found it.
+The Canvas data breach in May 2026 pushed a wave of students and teachers looking to
+back up their data, and the extension was already there. It now serves **4,000+ users**.
+Developers I had never met read the code and submitted pull requests with features I
+hadn't considered. Bug reports from r/Canvas taught me how much Canvas setups vary
+between universities, and each one made the tool work further beyond my own campus.

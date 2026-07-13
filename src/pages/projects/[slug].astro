@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Header from '../../components/Header.astro';
+import ProjectFigure from '../../components/ProjectFigure.astro';
 import { site } from '../../lib/site';
 
 export async function getStaticPaths() {
@@ -66,6 +67,12 @@ const linkEntries = [
       </article>
 
       <aside class="order-first self-start lg:order-none lg:sticky lg:top-24" data-reveal>
+        <div class="border-line text-mute relative mb-8 hidden aspect-square rounded-lg border p-4 sm:block">
+          <ProjectFigure id={project.id} />
+          <span class="voice-mono absolute bottom-2 left-3 text-[9px] opacity-70">
+            fig. {String(data.index).padStart(2, '0')}
+          </span>
+        </div>
         <h2 class="voice-mono text-mute mb-1">Specifications</h2>
         <dl class="voice-mono">
           {
