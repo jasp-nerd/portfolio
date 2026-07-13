@@ -1,0 +1,236 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Design tokens — Tailwind v4, CSS-first. No tailwind.config.js.
+   Two surfaces: "lab" (dark, default) and "paper" (case-study pages).
+   ------------------------------------------------------------------ */
+
+:root {
+  /* lab (dark) surface */
+  --surface-bg: #0e0d0b;
+  --surface-ink: #efeae0;
+  --surface-mute: #9a9285;
+  --surface-line: rgba(239, 234, 224, 0.14);
+  --surface-card: rgba(239, 234, 224, 0.03);
+  color-scheme: dark;
+}
+
+html[data-theme="paper"] {
+  --surface-bg: #f3efe6;
+  --surface-ink: #17130e;
+  --surface-mute: #6e675b;
+  --surface-line: rgba(23, 19, 14, 0.16);
+  --surface-card: rgba(23, 19, 14, 0.035);
+  color-scheme: light;
+}
+
+@theme {
+  --font-display: "Archivo Variable", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "Spline Sans Mono Variable", ui-monospace, monospace;
+
+  --color-accent: #ff4d00;
+
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@theme inline {
+  --color-bg: var(--surface-bg);
+  --color-ink: var(--surface-ink);
+  --color-mute: var(--surface-mute);
+  --color-card: var(--surface-card);
+}
+
+/* line color carries alpha, so expose it as a plain utility source */
+@utility border-line {
+  border-color: var(--surface-line);
+}
+
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+/* Lenis drives scrollTop per frame — native smooth scrolling fights it */
+html.lenis {
+  scroll-behavior: auto !important;
+}
+
+body {
+  background: var(--surface-bg);
+  color: var(--surface-ink);
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 100;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #0e0d0b;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------------
+   Type voices
+   ------------------------------------------------------------------ */
+
+.voice-display {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 125;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+  text-wrap: balance;
+}
+
+.voice-serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.voice-mono {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------------
+   Motion — reveal states exist ONLY when JS confirmed motion is ok.
+   No JS or reduced motion → content simply visible. (CLAUDE.md rule)
+   ------------------------------------------------------------------ */
+
+html.motion-ok [data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+.split-line {
+  display: block;
+  overflow: clip;
+}
+
+.split-line > .split-inner {
+  display: block;
+}
+
+html.motion-ok .split-line > .split-inner {
+  transform: translateY(110%);
+}
+
+/* marquee belt */
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 28s linear infinite;
+}
+
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Micro-interactions (CSS-only, per Emil's rules)
+   ------------------------------------------------------------------ */
+
+.pressable {
+  transition: transform 160ms var(--ease-out-strong);
+}
+
+.pressable:active {
+  transform: scale(0.97);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link-line {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: left calc(100% - 0.05em);
+    background-repeat: no-repeat;
+    transition: background-size 240ms var(--ease-out-strong);
+  }
+
+  .link-line:hover {
+    background-size: 100% 1px;
+  }
+
+  .card-hover {
+    transition:
+      border-color 200ms ease,
+      background-color 200ms ease;
+  }
+
+  .card-hover:hover {
+    border-color: color-mix(in srgb, var(--surface-ink) 35%, transparent);
+    background-color: var(--surface-card);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Case-study prose (styled by hand — no typography plugin)
+   ------------------------------------------------------------------ */
+
+.prose-case {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: color-mix(in srgb, var(--surface-ink) 86%, var(--surface-mute));
+  max-width: 65ch;
+}
+
+.prose-case h2 {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 115;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-size: 1.05rem;
+  color: var(--surface-ink);
+  margin: 2.75rem 0 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--surface-line);
+}
+
+.prose-case h2::before {
+  content: "§ ";
+  color: var(--color-accent);
+}
+
+.prose-case p {
+  margin-bottom: 1.1rem;
+}
+
+.prose-case strong {
+  color: var(--surface-ink);
+  font-weight: 650;
+}
+
+.prose-case a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

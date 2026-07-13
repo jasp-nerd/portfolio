@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import SectionHead from './SectionHead.astro';
+
+const featured = (await getCollection('projects', ({ data }) => data.featured)).sort(
+  (a, b) => a.data.index - b.data.index,
+);
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+
+<section id="work" class="scroll-mt-20 px-5 py-20 sm:px-8 sm:py-28">
+  <SectionHead index="02" label="Selected work" title="Case files" />
+
+  <ul>
+    {
+      featured.map(({ id, data }) => (
+        <li class="border-line border-b">
+          <a
+            href={`/projects/${id}/`}
+            class="group card-hover -mx-3 grid gap-x-8 gap-y-4 rounded-lg border border-transparent px-3 py-8 sm:py-10 lg:grid-cols-[auto_1.35fr_1fr]"
+            data-reveal
+          >
+            <span class="voice-mono text-accent pt-2" aria-hidden="true">
+              {pad(data.index)}
+            </span>
+
+            <div>
+              <h3 class="voice-display text-[clamp(1.7rem,4vw,3rem)]">{data.title}</h3>
+              <p class="voice-serif text-mute mt-2 text-[clamp(1.15rem,2vw,1.5rem)]">{data.tagline}</p>
+              <p class="text-mute mt-4 max-w-xl text-[15px] leading-relaxed">{data.description}</p>
+              <span class="voice-mono link-line text-ink mt-5 inline-block">
+                Open case file
+                <span class="inline-block transition-transform duration-200 group-hover:translate-x-1.5" aria-hidden="true">
+                  →
+                </span>
+              </span>
+            </div>
+
+            <div class="self-start lg:pt-2">
+              <dl class="voice-mono">
+                {data.specs.slice(0, 3).map((spec) => (
+                  <div class="border-line flex justify-between gap-4 border-b border-dashed py-2.5">
+                    <dt class="text-mute">{spec.label}</dt>
+                    <dd class="text-ink text-right normal-case tracking-normal">{spec.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p class="text-mute mt-3.5 text-[12px] leading-relaxed">{data.stack.slice(0, 5).join(' · ')}</p>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>

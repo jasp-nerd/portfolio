@@ -1,0 +1,78 @@
+[
+  {
+    "id": "siemens",
+    "role": "Working Student — AI & Data Science",
+    "org": "Siemens Nederland N.V.",
+    "place": "The Hague",
+    "period": "Mar 2026 — present",
+    "kind": "work",
+    "order": 1,
+    "points": [
+      "Building AI chatbots, automating business processes and shipping AI use-cases into production for Smart Infrastructure — Buildings Service.",
+      "Translating business needs into practical AI solutions; co-creating AI roadmaps and training colleagues in AI skills.",
+      "Working with Python, JavaScript and the Microsoft Power Platform (Power Automate, Power Apps, Power BI, Copilot)."
+    ]
+  },
+  {
+    "id": "vu-edulab",
+    "role": "Student Assistant — AI in Education",
+    "org": "VU Education Lab",
+    "place": "Amsterdam",
+    "period": "Mar 2025 — present",
+    "kind": "work",
+    "order": 2,
+    "points": [
+      "Delivering AI literacy workshops to 100+ faculty across Law, Business and the Sciences.",
+      "Shipped a production Chrome extension for educators; contributing to 15+ GenAI projects with professors and staff across VU Amsterdam.",
+      "Mentored two new team members; built LLM analysis pipelines, AI chatbots and grading assistants for education."
+    ]
+  },
+  {
+    "id": "aiso",
+    "role": "AI Impact Ambassador",
+    "org": "AISO × UvA Teaching and Learning Centre",
+    "place": "Amsterdam",
+    "period": "Nov 2025 — present",
+    "kind": "community",
+    "order": 3,
+    "points": [
+      "Representing the student perspective on AI in education and contributing to guidelines for responsible AI adoption in universities."
+    ]
+  },
+  {
+    "id": "honours-committee",
+    "role": "Honours Evaluation Committee",
+    "org": "Vrije Universiteit Amsterdam",
+    "place": "Amsterdam",
+    "period": "Dec 2025 — present",
+    "kind": "community",
+    "order": 4,
+    "points": [
+      "Evaluating interdepartmental Honours course quality and advising on programme improvements alongside fellow students and faculty."
+    ]
+  },
+  {
+    "id": "bsc-ai",
+    "role": "BSc Artificial Intelligence (Honours)",
+    "org": "Vrije Universiteit Amsterdam",
+    "place": "Intelligent Systems track",
+    "period": "2024 — 2027 (exp.)",
+    "kind": "education",
+    "order": 5,
+    "points": [
+      "GPA 7.9/10 in the Honours programme, Intelligent Systems track."
+    ]
+  },
+  {
+    "id": "vwo",
+    "role": "VWO",
+    "org": "Rijnlands Lyceum Oegstgeest",
+    "place": "Oegstgeest",
+    "period": "2018 — 2024",
+    "kind": "education",
+    "order": 6,
+    "points": [
+      "Awarded \"Einstein of the Year\" for outstanding STEM performance."
+    ]
+  }
+]

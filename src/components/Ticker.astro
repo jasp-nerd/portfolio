@@ -1,0 +1,21 @@
+---
+import { ticker } from '../lib/site';
+const items = [...ticker];
+---
+
+<div class="bg-accent -rotate-1 scale-x-105 overflow-clip border-y border-black/20 text-[#140b06]" aria-hidden="true">
+  <div class="ticker-track py-2.5">
+    {
+      [0, 1].map(() => (
+        <span class="flex shrink-0 items-center">
+          {items.map((item) => (
+            <span class="voice-mono flex items-center whitespace-nowrap tracking-[0.18em]">
+              <span class="px-5">{item}</span>
+              <span class="text-[9px]">✦</span>
+            </span>
+          ))}
+        </span>
+      ))
+    }
+  </div>
+</div>

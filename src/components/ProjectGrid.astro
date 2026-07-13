@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+
+const rest = (await getCollection('projects', ({ data }) => !data.featured)).sort(
+  (a, b) => a.data.index - b.data.index,
+);
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+
+<section class="px-5 pb-20 sm:px-8 sm:pb-28" aria-labelledby="more-work">
+  <h2 id="more-work" class="voice-mono text-mute mb-8" data-reveal>
+    <span class="text-accent">+</span> Also in the index
+  </h2>
+
+  <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      rest.map(({ data }) => (
+        <li>
+          <a
+            href={data.links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="border-line card-hover pressable group flex h-full flex-col rounded-lg border p-5"
+            data-reveal
+            data-reveal-group="grid"
+          >
+            <span class="voice-mono text-mute flex items-center justify-between">
+              <span class="text-accent">{pad(data.index)}</span>
+              <span>{data.status}</span>
+            </span>
+            <h3 class="voice-display mt-4 text-xl">{data.title}</h3>
+            <p class="voice-serif text-mute mt-1.5 text-lg">{data.tagline}</p>
+            <p class="text-mute mt-3 flex-1 text-[13.5px] leading-relaxed">{data.description}</p>
+            <span class="voice-mono text-mute group-hover:text-ink mt-5 transition-colors duration-200">
+              GitHub
+              <span class="inline-block transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
+                ↗
+              </span>
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>

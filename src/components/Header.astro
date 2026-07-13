@@ -1,0 +1,27 @@
+---
+import { site, nav } from '../lib/site';
+---
+
+<header class="fixed inset-x-0 top-0 z-40">
+  <div
+    class="border-line flex items-center justify-between border-b bg-[color-mix(in_srgb,var(--surface-bg)_78%,transparent)] px-5 py-4 backdrop-blur-md sm:px-8"
+  >
+    <a href="/" class="voice-mono text-ink flex items-center gap-2">
+      <span class="bg-accent inline-block size-1.5 rounded-full" aria-hidden="true"></span>
+      {site.domain}
+    </a>
+    <nav aria-label="Main">
+      <ul class="flex items-center gap-5 sm:gap-8">
+        {
+          nav.map((item) => (
+            <li>
+              <a href={item.href} class="voice-mono link-line text-mute hover:text-ink transition-colors duration-200">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

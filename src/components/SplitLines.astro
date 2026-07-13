@@ -1,0 +1,23 @@
+---
+/**
+ * Wraps each given line in an overflow mask so GSAP can slide it up on
+ * reveal. Server-rendered: no runtime text splitting, no layout shift.
+ * Without JS/motion the masks are inert and the text is simply visible.
+ */
+interface Props {
+  lines: string[];
+  trigger?: 'load' | 'scroll';
+}
+
+const { lines, trigger = 'scroll' } = Astro.props;
+---
+
+<span data-split={trigger}>
+  {
+    lines.map((line) => (
+      <span class="split-line">
+        <span class="split-inner" set:html={line} />
+      </span>
+    ))
+  }
+</span>

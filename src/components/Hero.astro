@@ -1,0 +1,45 @@
+---
+import SplitLines from './SplitLines.astro';
+import { site } from '../lib/site';
+---
+
+<section class="relative flex min-h-svh flex-col justify-end px-5 pt-32 pb-10 sm:px-8 sm:pb-14">
+  <p class="voice-mono text-mute mb-6" data-reveal data-reveal-group="hero">
+    <span class="text-accent">●</span>
+    Index of shipped work — {site.location}
+  </p>
+
+  <h1 class="voice-display text-[clamp(3.4rem,13.5vw,12rem)]">
+    <SplitLines trigger="load" lines={['Jasper', 'Meijerink']} />
+  </h1>
+
+  <p class="voice-serif text-ink mt-6 max-w-xl text-[clamp(1.5rem,3.2vw,2.4rem)] leading-tight" data-reveal data-reveal-group="hero">
+    builds practical <span class="text-accent">AI</span> that actually ships.
+  </p>
+
+  <div class="mt-10 flex flex-wrap items-end justify-between gap-8" data-reveal data-reveal-group="hero">
+    <p class="text-mute max-w-md text-[15px] leading-relaxed">
+      BSc Artificial Intelligence (Honours) at VU Amsterdam. Working student AI &amp;
+      Data Science at <strong class="text-ink font-medium">Siemens</strong>. Twelve
+      projects public — two on the Chrome Web Store, several in production at a
+      university near you.
+    </p>
+
+    <dl class="voice-mono text-mute grid grid-cols-2 gap-x-10 gap-y-2 text-right sm:text-left">
+      <div class="flex justify-between gap-6"><dt>Focus</dt><dd class="text-ink">AI / ML · Full-stack</dd></div>
+      <div class="flex justify-between gap-6"><dt>GPA</dt><dd class="text-ink">7.9 / 10 · Honours</dd></div>
+      <div class="flex justify-between gap-6"><dt>Now</dt><dd class="text-ink">Siemens · VU</dd></div>
+      <div class="flex justify-between gap-6"><dt>Status</dt><dd class="text-accent">Open to opportunities</dd></div>
+    </dl>
+  </div>
+
+  <a
+    href="/#work"
+    class="voice-mono text-mute hover:text-ink group mt-12 inline-flex w-fit items-center gap-3 transition-colors duration-200"
+    data-reveal
+    data-reveal-group="hero"
+  >
+    Scroll for the index
+    <span class="bg-accent block h-px w-14 origin-left transition-transform duration-200 group-hover:scale-x-150" aria-hidden="true"></span>
+  </a>
+</section>
