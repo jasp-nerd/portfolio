@@ -14,8 +14,11 @@ export function windowDrag(el: HTMLElement, bar: HTMLElement, onPress: () => voi
     minimumMovement: 3,
     onPress() {
       onPress();
-      // keep the title bar reachable: never under the menu bar, never fully off screen
-      const L = el.offsetLeft, T = el.offsetTop, width = el.offsetWidth;
+      // keep the title bar reachable: never under the menu bar, never fully off screen.
+      // Measure in viewport coordinates (offsetTop is relative to .wins, which already
+      // sits below the menu bar, so using it here pushed every high window down on press).
+      const r = el.getBoundingClientRect();
+      const L = r.left - this.x, T = r.top - this.y, width = r.width;
       this.applyBounds({
         minX: -L - width + 96,
         maxX: innerWidth - L - 96,
