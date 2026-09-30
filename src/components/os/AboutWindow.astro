@@ -22,7 +22,7 @@ const socials: { name: string; url: string; icon: IconName }[] = [
 <Window id="about" title="about me.txt" icon="doc" size="m" open z={1} titleTag="div" kind="about">
   <div class="about">
     <div class="about-photo" data-fx-trigger>
-      <PixelImage src={portrait} alt={`portrait of ${site.name}`} mode="step" tone="duotone" block={4} loading="eager" sizes="150px" widths={[300, 600]} />
+      <PixelImage src={portrait} alt={`portrait of ${site.name}`} mode="lens" tone="duotone" block={4} loading="eager" sizes="150px" widths={[300, 600]} />
     </div>
     <div class="about-text">
       <h1 class="about-h1">hey, I'm {site.first}.</h1>
