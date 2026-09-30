@@ -23,6 +23,13 @@ npm run format     # prettier
 - **GSAP 3.15** — ScrollTrigger and SplitText are free and imported from the main `gsap` package
   (`gsap/ScrollTrigger`, `gsap/SplitText`). No club/bonus files.
 - **Lenis 1.3** for smooth scroll (`import Lenis from 'lenis'`), synced to `gsap.ticker`.
+- **React 19 islands** via `@astrojs/react` (+ `motion`) are allowed where a React-only library earns it
+  (React Bits, Motion). Hydrate with `client:visible`/`client:idle`; pages must still render without JS.
+- **Shared effects** live in `src/components/fx/` + `src/lib/fx/` (hand-written WebGL2: AsciiImage,
+  PixelImage, DitherField; LoopVideo; ScrambleText helpers). Palette via `--fx-bg/--fx-ink/--fx-accent/--fx-dim`.
+- **Remake (branch `remake`, Sep 2026):** three versions under review at `/os/`, `/quiet/`, `/terminal/`,
+  each in its own lane (`src/{pages,components,lib}/<v>/`, `src/styles/<v>.css`). Media per project is found
+  by convention via `getMedia(slug)` (`src/lib/media.ts`). `/lab/` is an fx test page, delete before launch.
 
 ## Structure rules
 

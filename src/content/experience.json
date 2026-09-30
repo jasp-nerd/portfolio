@@ -1,78 +1,70 @@
 [
   {
     "id": "siemens",
-    "role": "Data Science & AI - Working Student",
-    "org": "Siemens Nederland N.V.",
+    "role": "data science & ai, working student",
+    "org": "Siemens",
     "place": "The Hague",
-    "period": "Mar 2026 - present",
+    "when": "mar 2026 → now",
+    "now": true,
     "kind": "work",
     "order": 1,
     "points": [
-      "Building a computer vision pipeline for P&ID engineering diagrams: vector-based symbol detection with a custom graph clustering algorithm and VLM few-shot classification, deployed as an internal web tool.",
-      "Own the ETL pipeline for inventory reporting; resolved silent data-loss defects and expanded reporting coverage."
+      "computer vision and ai on P&ID engineering diagrams, shipped as an internal web tool",
+      "own the inventory reporting ETL, fixed silent data loss nobody had noticed"
+    ]
+  },
+  {
+    "id": "vu-education-lab",
+    "role": "student assistant, ai in education",
+    "org": "VU Education Lab",
+    "place": "Amsterdam",
+    "when": "mar 2025 → now",
+    "now": true,
+    "kind": "work",
+    "order": 2,
+    "points": [
+      "15+ genai projects from idea to production, including the VU AI assistant",
+      "ai workshops for 300+ lecturers and staff, across every faculty"
     ]
   },
   {
     "id": "aiso",
-    "role": "AI Engineer - Platform & Automations",
+    "role": "ai engineer, platform & automations",
     "org": "AISO",
     "place": "Amsterdam",
-    "period": "Apr 2026 - present",
-    "kind": "work",
-    "order": 2,
-    "points": [
-      "Building AISO's AI-native stack, including a RAG chatbot over Notion databases via MCP."
-    ]
-  },
-  {
-    "id": "ecochain",
-    "role": "AI Engineer",
-    "org": "Ecochain (B Corp)",
-    "place": "Amsterdam",
-    "period": "Apr - Jun 2026",
+    "when": "apr 2026 → now",
+    "now": true,
     "kind": "work",
     "order": 3,
     "points": [
-      "Shipped an agentic document-automation pipeline for sustainability reporting: LLM extraction with per-field source citations, deployed fully local for compliance, designed to cut reporting time 50%."
-    ]
-  },
-  {
-    "id": "vu-ctl",
-    "role": "Student Assistant - AI in Education",
-    "org": "VU Centre for Teaching & Learning",
-    "place": "Amsterdam",
-    "period": "Mar 2025 - present",
-    "kind": "work",
-    "order": 4,
-    "points": [
-      "Led 15+ GenAI projects from idea to production.",
-      "Shipped a Chrome extension with an Azure backend (Google OAuth, SSE streaming, rate limiting), live on the Chrome Web Store and rolling out to educators across the university.",
-      "Built an LLM pipeline that automates qualitative coding of student reflections on fully local inference: days of manual analysis down to ~9 minutes.",
-      "Taught AI workshops to 300+ faculty and staff across three faculties."
+      "rag chatbot over notion databases via mcp",
+      "shipped the ai projects tab, ecosystem map and my journey page on the member platform"
     ]
   },
   {
     "id": "honours-committee",
-    "role": "Honours Evaluation Committee",
-    "org": "Vrije Universiteit Amsterdam",
+    "role": "honours evaluation committee",
+    "org": "VU Amsterdam",
     "place": "Amsterdam",
-    "period": "Dec 2025 - present",
+    "when": "dec 2025 → now",
+    "now": true,
     "kind": "community",
-    "order": 5,
+    "order": 4,
     "points": [
-      "Evaluating interdepartmental Honours course quality and advising on programme improvements alongside fellow students and faculty."
+      "reviewing honours courses with students and faculty"
     ]
   },
   {
-    "id": "bsc-ai",
-    "role": "BSc Artificial Intelligence (Honours)",
-    "org": "Vrije Universiteit Amsterdam",
-    "place": "Intelligent Systems track",
-    "period": "2024 - 2027 (exp.)",
-    "kind": "education",
-    "order": 6,
+    "id": "ecochain",
+    "role": "ai engineer",
+    "org": "Ecochain",
+    "place": "Amsterdam",
+    "when": "apr 2026 → jun 2026",
+    "now": false,
+    "kind": "work",
+    "order": 5,
     "points": [
-      "Honours programme, Intelligent Systems track. Finalist at the Prosus × AISO agent hackathon; built a multimodal banking agent at bunq Hackathon 7.0."
+      "agentic document automation for sustainability reports"
     ]
   }
 ]

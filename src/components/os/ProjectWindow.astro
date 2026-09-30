@@ -1,0 +1,115 @@
+---
+import { render, type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import Window from "./Window.astro";
+import PxIcon from "./PxIcon.astro";
+import LoopVideo from "../fx/LoopVideo.astro";
+import { getMedia } from "../../lib/media";
+import { PROJECT_ICON } from "../../lib/os/icons";
+import { linkLabel } from "../../lib/os/labels";
+import { altFor } from "../../lib/os/alt";
+import { extraImages } from "../../lib/os/extra-media";
+
+interface Props {
+  entry: CollectionEntry<"projects">;
+  open?: boolean;
+  z?: number;
+}
+const { entry, open = false, z } = Astro.props;
+const p = entry.data;
+const slug = entry.id;
+const media = getMedia(slug);
+const extra = extraImages(slug);
+const cover = media.cover ?? extra[0];
+const stills = media.stills.length ? media.stills : extra.slice(media.cover ? 0 : 1);
+const { Content } = await render(entry);
+const links = Object.entries(p.links).filter(([, url]) => !!url) as [string, string][];
+const icon = PROJECT_ICON[slug] ?? "doc";
+---
+
+<Window
+  id={`p-${slug}`}
+  title={p.title}
+  icon={icon}
+  image={media.icon}
+  size="l"
+  open={open}
+  z={z}
+  kind="project"
+>
+  <article class="proj" data-slug={slug}>
+    <div class="mat" data-fx-trigger>
+      {
+        media.loop ? (
+          <LoopVideo slug={slug} label={`${p.title}, screen recording`} />
+        ) : cover ? (
+          <Image
+            class="mat-img"
+            src={cover}
+            alt={altFor(slug, cover, `${p.title}, screenshot`)}
+            widths={cover.format === "svg" ? undefined : [560, 1120]}
+            sizes="530px"
+          />
+        ) : (
+          <div class="mat-card" aria-hidden="true">
+            <PxIcon name={icon} size={96} />
+            <span class="mat-stat">{p.stat.value}</span>
+            <span class="mat-label">{p.stat.label}</span>
+          </div>
+        )
+      }
+    </div>
+
+    <div class="proj-head">
+      <p class="proj-lead">{p.oneliner}</p>
+      <p class="proj-stat">
+        <strong>{p.stat.value}</strong>
+        <span>{p.stat.label}</span>
+      </p>
+    </div>
+
+    <dl class="info">
+      <div><dt>kind</dt><dd>{p.kind}</dd></div>
+      <div><dt>when</dt><dd>{p.when}</dd></div>
+      <div><dt>effort</dt><dd>{p.effort}</dd></div>
+      <div><dt>role</dt><dd>{p.role}</dd></div>
+      <div>
+        <dt>stack</dt>
+        <dd><ul class="chips">{p.stack.map((s) => <li>{s}</li>)}</ul></dd>
+      </div>
+    </dl>
+
+    <p class="proj-links">
+      {
+        media.demo && (
+          <a class="btn btn-primary" href={`#w-demo-${slug}`} data-open={`demo-${slug}`}>
+            <span aria-hidden="true">▶</span> watch the demo
+          </a>
+        )
+      }
+      {
+        links.map(([k, url]) => (
+          <a class="btn" href={url} target="_blank" rel="noopener">
+            {linkLabel(k, url)} <span aria-hidden="true">↗</span>
+          </a>
+        ))
+      }
+    </p>
+
+    <div class="story">
+      <Content />
+    </div>
+
+    {
+      stills.length > 0 && (
+        <ul class="stills" aria-label="screenshots">
+          {stills.map((s, i) => (
+            <li>
+              <Image src={s} alt={altFor(slug, s, `${p.title}, screenshot ${i + 1}`)} widths={[360, 720]} sizes="230px" />
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </article>
+</Window>

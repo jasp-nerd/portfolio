@@ -1,0 +1,69 @@
+---
+import Window from "./Window.astro";
+import PxIcon from "./PxIcon.astro";
+import PixelImage from "../fx/PixelImage.astro";
+import portrait from "../../assets/me/portrait.jpg";
+import { site } from "../../lib/site";
+import type { IconName } from "../../lib/os/icons";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  flagship: CollectionEntry<"projects">;
+}
+const { flagship } = Astro.props;
+const f = flagship.data;
+const socials: { name: string; url: string; icon: IconName }[] = [
+  { name: "github", url: site.socials.github, icon: "github" },
+  { name: "linkedin", url: site.socials.linkedin, icon: "linkedin" },
+  { name: "hugging face", url: site.socials.huggingface, icon: "hf" },
+];
+---
+
+<Window id="about" title="about me.txt" icon="doc" size="m" open z={1} titleTag="div" kind="about">
+  <div class="about">
+    <div class="about-photo" data-fx-trigger>
+      <PixelImage src={portrait} alt={`portrait of ${site.name}`} mode="step" tone="duotone" block={4} loading="eager" sizes="150px" widths={[300, 600]} />
+    </div>
+    <div class="about-text">
+      <h1 class="about-h1">hey, I'm {site.first}.</h1>
+      <p class="about-lead">
+        {site.study}. I build small tools that real people end up using, usually because something annoyed me first.
+      </p>
+    </div>
+    <dl class="spec">
+      <div>
+        <dt>running now</dt>
+        <dd>
+          <ul>{site.now.map((n) => <li>{n}</li>)}</ul>
+        </dd>
+      </div>
+      <div>
+        <dt>most used</dt>
+        <dd>
+          <a href={`#w-p-${flagship.id}`} data-open={`p-${flagship.id}`}>{f.title}</a>, {`${f.stat.value} ${f.stat.label}`}
+        </dd>
+      </div>
+      <div>
+        <dt>based in</dt>
+        <dd>
+          {site.city.toLowerCase()}<span class="js-only">, <time data-clock></time> here <span class="dim" data-offset></span></span>
+        </dd>
+      </div>
+    </dl>
+    <ul class="socials">
+      {
+        socials.map((s) => (
+          <li>
+            <a class="social" href={s.url} target="_blank" rel="noopener me">
+              <PxIcon name={s.icon} size={20} />
+              <span>{s.name}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <Fragment slot="status">
+    <span>{site.domain}</span><span>updated sep 2026</span>
+  </Fragment>
+</Window>

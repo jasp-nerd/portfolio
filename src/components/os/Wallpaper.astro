@@ -1,0 +1,12 @@
+---
+/**
+ * The desktop wallpaper: a dithered violet polder with a windmill (src/lib/os/polder.ts).
+ * No JS: a pre-rendered still of the same scene. JS paints the live canvas on top.
+ */
+---
+
+<div class="wallpaper" aria-hidden="true" data-polder>
+  <img class="wp-still" src="/os/polder.png" alt="" width="480" height="300" decoding="async" />
+  <img class="wp-still wp-still-tall" src="/os/polder-tall.png" alt="" width="130" height="282" decoding="async" />
+  <canvas class="wp-canvas"></canvas>
+</div>

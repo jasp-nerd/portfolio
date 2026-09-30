@@ -1,0 +1,48 @@
+---
+/** Toy windows that only exist with JS: the trash and about jasp.os. */
+import Window from "./Window.astro";
+import PxIcon from "./PxIcon.astro";
+
+const trash = ["portfolio-v1.html", "tailwind.config.js", "headless-search.py", "llm-in-the-loop.py"];
+const keys = [
+  ["esc", "close the top window"],
+  ["m", "sound on/off"],
+];
+---
+
+<Window id="trash" title="trash" icon="trash" size="s" toy kind="trash">
+  <ul class="trash-list">
+    {
+      trash.map((name) => (
+        <li>
+          <PxIcon name="doc" size={24} />
+          <b>{name}</b>
+        </li>
+      ))
+    }
+  </ul>
+  <Fragment slot="status"><span>{trash.length} items</span></Fragment>
+</Window>
+
+<Window id="os" title="about jasp.os" icon="face" size="s" toy kind="os">
+  <div class="aboutos">
+    <p class="aboutos-name">jasp.os <span class="dim">26.9</span></p>
+    <p class="dim">a small desktop that is also my portfolio. built with astro and gsap, hosted on one hetzner box.</p>
+    <p class="dim">double-click icons to open them. drag windows by their title bar.</p>
+    <h3 class="work-sub">shortcuts</h3>
+    <dl class="keys">
+      {
+        keys.map(([k, what]) => (
+          <div>
+            <dt><kbd>{k}</kbd></dt>
+            <dd>{what}</dd>
+          </div>
+        ))
+      }
+      <div class="keys-locked">
+        <dt><PxIcon name="lock" size={16} /></dt>
+        <dd data-bit-status>secret mode, locked</dd>
+      </div>
+    </dl>
+  </div>
+</Window>

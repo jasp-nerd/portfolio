@@ -1,0 +1,44 @@
+---
+/**
+ * Animated ordered-dither noise field. Absolutely fills its positioned parent.
+ * calm: which area stays quiet so text on top stays readable.
+ * No JS: a static CSS gradient in the same palette. Reduced motion: one still frame.
+ */
+interface Props {
+  calm?: "bottom-left" | "left" | "center" | "none";
+  /** CSS px per dither pixel */
+  px?: number;
+  class?: string;
+}
+const { calm = "bottom-left", px = 3, class: cls = "" } = Astro.props;
+---
+
+<div
+  class:list={["fx-dither pointer-events-none absolute inset-0 overflow-hidden", cls]}
+  data-fx="dither"
+  data-calm={calm}
+  data-px={px}
+  aria-hidden="true"
+>
+</div>
+
+<style>
+  /* no-JS fallback. global.css sets --fx-* on [data-fx] itself, which would hide values set on an
+     ancestor; take the ancestor's (else --bg / --accent) so the fallback matches the palette. */
+  :where(.fx-dither)[data-fx] {
+    --fx-bg: inherit;
+    --fx-accent: inherit;
+  }
+  .fx-dither {
+    background:
+      radial-gradient(60% 70% at 75% 25%, color-mix(in oklab, var(--fx-accent, var(--accent, #8b6cff)) 35%, transparent), transparent 70%),
+      var(--fx-bg, var(--bg, #111));
+  }
+</style>
+
+<script>
+  import { initDither } from "../../lib/fx/dither-field";
+  const run = () => document.querySelectorAll<HTMLElement>("[data-fx='dither']").forEach((el) => initDither(el));
+  run();
+  document.addEventListener("astro:page-load", run); // ClientRouter, if a version enables it
+</script>

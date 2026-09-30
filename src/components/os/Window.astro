@@ -1,0 +1,77 @@
+---
+/**
+ * Window chrome. Without JS every window is a normal section in the page flow
+ * (title bar as its heading). With JS (html.os-live) the window manager in
+ * src/lib/os/wm.ts floats, drags, stacks and minimizes them.
+ */
+import PxIcon from "./PxIcon.astro";
+import type { IconName } from "../../lib/os/icons";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  id: string;
+  title: string;
+  icon?: IconName;
+  image?: ImageMetadata;
+  size?: "s" | "m" | "l" | "xl";
+  /** open on first paint (desktop) */
+  open?: boolean;
+  /** only exists as a toy: hidden without JS */
+  toy?: boolean;
+  /** title bar element; "div" when the body carries the page h1 */
+  titleTag?: "h2" | "div";
+  kind?: string;
+  /** stacking order among the windows open on first paint */
+  z?: number;
+  class?: string;
+}
+const {
+  id,
+  title,
+  icon = "doc",
+  image,
+  size = "m",
+  open = false,
+  toy = false,
+  titleTag: T = "h2",
+  kind = "doc",
+  z,
+  class: cls = "",
+} = Astro.props;
+const tid = `w-${id}-t`;
+---
+
+<section
+  class:list={["win", cls]}
+  id={`w-${id}`}
+  data-win={id}
+  data-kind={kind}
+  data-size={size}
+  data-title={title}
+  data-open={open ? "" : undefined}
+  data-toy={toy ? "" : undefined}
+  data-z={z}
+  style={z ? `z-index:${20 + z}` : undefined}
+  aria-labelledby={tid}
+>
+  <header class="win-bar">
+    <button class="win-btn win-close" type="button" data-act="close" aria-label={`close ${title}`}>
+      <span aria-hidden="true">close</span>
+    </button>
+    <T class="win-title" id={tid} tabindex="-1">
+      <PxIcon name={icon} image={image} size={16} class="win-title-icon" />
+      <span>{title}</span>
+    </T>
+    <button class="win-btn win-min" type="button" data-act="min" aria-label={`minimize ${title}`}></button>
+  </header>
+  <div class="win-body">
+    <slot />
+  </div>
+  {
+    Astro.slots.has("status") && (
+      <footer class="win-status">
+        <slot name="status" />
+      </footer>
+    )
+  }
+</section>

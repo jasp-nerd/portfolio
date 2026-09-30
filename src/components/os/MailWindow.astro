@@ -1,0 +1,30 @@
+---
+import Window from "./Window.astro";
+import { site } from "../../lib/site";
+---
+
+<Window id="mail" title="new message" icon="mail" size="m" kind="mail">
+  <form class="mail" method="get" action={`mailto:${site.email}`} data-mail={site.email}>
+    <div class="mail-field">
+      <span class="mail-k">to</span>
+      <a class="mail-to" href={`mailto:${site.email}`}>{site.email}</a>
+    </div>
+    <label class="mail-field">
+      <span class="mail-k">subject</span>
+      <input name="subject" type="text" autocomplete="off" />
+    </label>
+    <label class="mail-body">
+      <span class="sr-only">message</span>
+      <textarea name="body" rows="6" placeholder="hey jasper,"></textarea>
+    </label>
+    <div class="mail-foot">
+      <button class="btn btn-primary" type="submit">send</button>
+    </div>
+  </form>
+  <p class="mail-else">
+    or find me on{" "}
+    <a href={site.socials.github} target="_blank" rel="noopener me">github</a>,{" "}
+    <a href={site.socials.linkedin} target="_blank" rel="noopener me">linkedin</a> and{" "}
+    <a href={site.socials.huggingface} target="_blank" rel="noopener me">hugging face</a>.
+  </p>
+</Window>

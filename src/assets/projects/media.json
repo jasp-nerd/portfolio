@@ -1,0 +1,578 @@
+{
+  "generated": "2026-09-29",
+  "note": "Stills in src/assets/projects/<slug>/ (import via astro:assets). Videos in public/media/<slug>/ (serve as /media/<slug>/...). Loops are muted, H.264 yuv420p faststart + VP9 webm; poster = first frame.",
+  "projects": {
+    "canvas-course-downloader": [
+      {
+        "path": "src/assets/projects/canvas-course-downloader/cover.jpg",
+        "sizeKB": 204,
+        "width": 2400,
+        "height": 1600,
+        "description": "Extension popup \"Course Downloader\" (Active/Past courses, course checklist) open over a real VU Canvas dashboard; light UI."
+      },
+      {
+        "path": "src/assets/projects/canvas-course-downloader/still-1.jpg",
+        "sizeKB": 187,
+        "width": 2400,
+        "height": 1233,
+        "description": "Chrome Web Store listing header: Featured badge, 4.8 stars (17 ratings), 9,000 users, plus two promo tiles."
+      },
+      {
+        "path": "src/assets/projects/canvas-course-downloader/still-2.png",
+        "sizeKB": 113,
+        "width": 1994,
+        "height": 1536,
+        "description": "Settings page: export presets (Full Archive, Files Only...) and content-type checkboxes incl. submissions, grades, quizzes."
+      },
+      {
+        "path": "src/assets/projects/canvas-course-downloader/still-3.png",
+        "sizeKB": 88,
+        "width": 1100,
+        "height": 655,
+        "description": "Frame from workflow demo: Canvas dashboard with \"Downloading 1 of 2: Logic and Sets for AI\" and a download progress toast."
+      },
+      {
+        "path": "src/assets/projects/canvas-course-downloader/icon.svg",
+        "sizeKB": 9,
+        "width": null,
+        "height": null,
+        "type": "svg",
+        "description": "Red circular download-arrow logo (vector)."
+      },
+      {
+        "path": "public/media/canvas-course-downloader/loop.mp4",
+        "sizeKB": 329,
+        "width": 1100,
+        "height": 656,
+        "duration": 9.9,
+        "codec": "h264",
+        "audio": false,
+        "description": "Muted loop of the real workflow: open popup, pick courses, download runs with progress toast. From workflow.gif."
+      },
+      {
+        "path": "public/media/canvas-course-downloader/loop.webm",
+        "sizeKB": 388,
+        "width": 1100,
+        "height": 656,
+        "duration": 9.9,
+        "codec": "vp9",
+        "audio": false,
+        "description": "VP9 version of loop.mp4."
+      },
+      {
+        "path": "public/media/canvas-course-downloader/loop-poster.jpg",
+        "sizeKB": 75,
+        "width": 1100,
+        "height": 656,
+        "description": "First frame of the loop: popup with course list over the Canvas dashboard."
+      }
+    ],
+    "vu-teacher-assistant": [
+      {
+        "path": "src/assets/projects/vu-teacher-assistant/cover.jpg",
+        "sizeKB": 410,
+        "width": 2386,
+        "height": 1364,
+        "description": "Chrome with a VU news article (wildfires) and the AI Assistant side panel showing all 16 tools in Understand/Assess/Design/Ask groups."
+      },
+      {
+        "path": "src/assets/projects/vu-teacher-assistant/still-1.jpg",
+        "sizeKB": 302,
+        "width": 1304,
+        "height": 1365,
+        "description": "Portrait crop of the side panel: generated quiz bank on Alan Turing with answer key, rationale, Bloom level and item-quality chips."
+      },
+      {
+        "path": "src/assets/projects/vu-teacher-assistant/still-2.jpg",
+        "sizeKB": 291,
+        "width": 2400,
+        "height": 1350,
+        "description": "PowerPoint export using the official VU Amsterdam template (title slide), with the demo video's \"POWERPOINT\" label top-left."
+      },
+      {
+        "path": "src/assets/projects/vu-teacher-assistant/still-3.jpg",
+        "sizeKB": 344,
+        "width": 2355,
+        "height": 1356,
+        "description": "Settings > Courses: course profile form (discipline, audience, about the course, learning objectives), version 4.0.0."
+      },
+      {
+        "path": "src/assets/projects/vu-teacher-assistant/icon.png",
+        "sizeKB": 6,
+        "width": 128,
+        "height": 128,
+        "description": "Extension icon, 128px."
+      },
+      {
+        "path": "public/media/vu-teacher-assistant/loop.mp4",
+        "sizeKB": 1042,
+        "width": 1280,
+        "height": 720,
+        "duration": 10.2,
+        "codec": "h264",
+        "audio": false,
+        "description": "Muted loop: Dutch slide outline streams into the panel, one click exports to PowerPoint, slides flip in the VU template. Cropped from the 4K demo."
+      },
+      {
+        "path": "public/media/vu-teacher-assistant/loop.webm",
+        "sizeKB": 1371,
+        "width": 1280,
+        "height": 720,
+        "duration": 10.2,
+        "codec": "vp9",
+        "audio": false,
+        "description": "VP9 version of loop.mp4."
+      },
+      {
+        "path": "public/media/vu-teacher-assistant/loop-poster.jpg",
+        "sizeKB": 146,
+        "width": 1280,
+        "height": 720,
+        "description": "First frame of the loop: browser with wildfire article and panel filled with generated Dutch slide text."
+      },
+      {
+        "path": "public/media/vu-teacher-assistant/demo.mp4",
+        "sizeKB": 9450,
+        "width": 1280,
+        "height": 720,
+        "duration": 184.9,
+        "codec": "h264",
+        "audio": true,
+        "description": "Full narrated product demo (3:05) with audio, 720p, burned-in captions, 5 chapters: set up, any page, your course, ask, quiz bank."
+      },
+      {
+        "path": "public/media/vu-teacher-assistant/demo.vtt",
+        "sizeKB": 4,
+        "description": "WebVTT captions for demo.mp4 (same timeline). Note: captions are also burned into the video."
+      },
+      {
+        "path": "public/media/vu-teacher-assistant/demo-poster.jpg",
+        "sizeKB": 77,
+        "width": 1280,
+        "height": 720,
+        "description": "Title card of the demo: \"VU Education Lab AI Assistant, turns it into teaching material, right beside the page\" with a panel mock."
+      }
+    ],
+    "bunq-trip-agent": [
+      {
+        "path": "src/assets/projects/bunq-trip-agent/cover.jpg",
+        "sizeKB": 325,
+        "width": 1920,
+        "height": 1024,
+        "description": "Trip Agent dashboard (dark, bunq orange): three illustrated Amsterdam trip packages with prices and cited sources, research feed on the right; third illustration still \"painting\"."
+      },
+      {
+        "path": "src/assets/projects/bunq-trip-agent/still-1.jpg",
+        "sizeKB": 171,
+        "width": 1920,
+        "height": 1024,
+        "description": "Execute phase: tool-call chips firing, budget meter at 1800, action cards, and the live Playwright agent browser paying on a hotel checkout page."
+      },
+      {
+        "path": "src/assets/projects/bunq-trip-agent/still-2.jpg",
+        "sizeKB": 145,
+        "width": 1920,
+        "height": 1024,
+        "description": "Later in execute: sub-account \"Amsterdam Weekend\" at 900/1800, actions grid with hotel paid and a dinner approval awaiting tap."
+      },
+      {
+        "path": "src/assets/projects/bunq-trip-agent/still-3.jpg",
+        "sizeKB": 175,
+        "width": 1280,
+        "height": 680,
+        "description": "All three package illustrations rendered, option A selected, user reply \"I'll take opt-a\". 1280px frame."
+      },
+      {
+        "path": "public/media/bunq-trip-agent/loop.mp4",
+        "sizeKB": 530,
+        "width": 1280,
+        "height": 720,
+        "duration": 13.4,
+        "codec": "h264",
+        "audio": false,
+        "description": "Silent 13 s loop of the execute cascade: user confirms, tool chips fire, sub-account funds, agent browser books the hotel, balances update."
+      },
+      {
+        "path": "public/media/bunq-trip-agent/loop.webm",
+        "sizeKB": 607,
+        "width": 1280,
+        "height": 720,
+        "duration": 13.4,
+        "codec": "vp9",
+        "audio": false,
+        "description": "VP9 version of loop.mp4."
+      },
+      {
+        "path": "public/media/bunq-trip-agent/loop-poster.jpg",
+        "sizeKB": 120,
+        "width": 1280,
+        "height": 720,
+        "description": "First frame: three illustrated packages with option A chosen."
+      },
+      {
+        "path": "public/media/bunq-trip-agent/demo.mp4",
+        "sizeKB": 3298,
+        "width": 1280,
+        "height": 720,
+        "duration": 115.01,
+        "codec": "h264",
+        "audio": true,
+        "description": "Web cut of the hackathon demo (1:55) with voice-over audio, cut before the Slack segment. Slides then live product."
+      },
+      {
+        "path": "public/media/bunq-trip-agent/demo-poster.jpg",
+        "sizeKB": 137,
+        "width": 1280,
+        "height": 720,
+        "description": "Three illustrated trip packages on the dashboard (1280x720)."
+      }
+    ],
+    "jfam-restaurant-agent": [
+      {
+        "path": "src/assets/projects/jfam-restaurant-agent/cover.png",
+        "sizeKB": 290,
+        "width": 2400,
+        "height": 1360,
+        "description": "Replay dashboard, day 30 of 30: rising cash trajectory, agent decisions, final score 57,776 euro, day stats. Dark UI."
+      },
+      {
+        "path": "src/assets/projects/jfam-restaurant-agent/still-1.png",
+        "sizeKB": 318,
+        "width": 2400,
+        "height": 1360,
+        "description": "Replay dashboard mid-game (day 17): cash chart halfway, supplier orders the agent placed that day."
+      },
+      {
+        "path": "src/assets/projects/jfam-restaurant-agent/still-2.png",
+        "sizeKB": 58,
+        "width": 1585,
+        "height": 857,
+        "description": "Matplotlib chart: tourist_season seed 7, cash over 30 days (final 57,776) plus daily covers bars."
+      },
+      {
+        "path": "src/assets/projects/jfam-restaurant-agent/still-3.png",
+        "sizeKB": 63,
+        "width": 1585,
+        "height": 857,
+        "description": "Matplotlib chart: renovation seed 42 with capacity_cut window shaded, final 22,081."
+      },
+      {
+        "path": "public/media/jfam-restaurant-agent/loop.mp4",
+        "sizeKB": 216,
+        "width": 1280,
+        "height": 688,
+        "duration": 13.93,
+        "codec": "h264",
+        "audio": false,
+        "description": "Muted 14 s loop of the replay dashboard playing a 30-day game: cash line climbs day by day, decisions update, ends on the final score."
+      },
+      {
+        "path": "public/media/jfam-restaurant-agent/loop.webm",
+        "sizeKB": 310,
+        "width": 1280,
+        "height": 688,
+        "duration": 13.93,
+        "codec": "vp9",
+        "audio": false,
+        "description": "VP9 version of loop.mp4."
+      },
+      {
+        "path": "public/media/jfam-restaurant-agent/loop-poster.jpg",
+        "sizeKB": 57,
+        "width": 1280,
+        "height": 688,
+        "description": "First frame: day 30 with FINAL SCORE 57,776 visible."
+      }
+    ],
+    "vu-ai-hub": [
+      {
+        "path": "src/assets/projects/vu-ai-hub/cover.jpg",
+        "sizeKB": 246,
+        "width": 2400,
+        "height": 1500,
+        "description": "Live site hero \"Your guide to the AI bachelor at VU Amsterdam\" with isometric laptop illustration; light UI."
+      },
+      {
+        "path": "src/assets/projects/vu-ai-hub/still-1.png",
+        "sizeKB": 471,
+        "width": 2400,
+        "height": 1500,
+        "description": "Courses index: year filter tabs and illustrated course cards with codes and difficulty meters."
+      },
+      {
+        "path": "src/assets/projects/vu-ai-hub/still-2.png",
+        "sizeKB": 127,
+        "width": 1650,
+        "height": 1440,
+        "description": "Answered practice quiz (Machine Learning, 302 questions): correct option green, wrong option red, KaTeX explanation. Captured live today."
+      },
+      {
+        "path": "src/assets/projects/vu-ai-hub/still-3.jpg",
+        "sizeKB": 213,
+        "width": 1170,
+        "height": 2532,
+        "description": "Mobile (iPhone @3x) homepage hero."
+      },
+      {
+        "path": "src/assets/projects/vu-ai-hub/icon.svg",
+        "sizeKB": 3,
+        "width": null,
+        "height": null,
+        "type": "svg",
+        "description": "AI @ VU logo mark (vector)."
+      },
+      {
+        "path": "public/media/vu-ai-hub/loop.mp4",
+        "sizeKB": 896,
+        "width": 1280,
+        "height": 800,
+        "duration": 9.6,
+        "codec": "h264",
+        "audio": false,
+        "description": "Muted 10 s scroll of the live homepage: hero, \"What you'll find here\", into the illustrated course-card grid. Recorded with Playwright today."
+      },
+      {
+        "path": "public/media/vu-ai-hub/loop.webm",
+        "sizeKB": 602,
+        "width": 1280,
+        "height": 800,
+        "duration": 9.6,
+        "codec": "vp9",
+        "audio": false,
+        "description": "VP9 version of loop.mp4."
+      },
+      {
+        "path": "public/media/vu-ai-hub/loop-poster.jpg",
+        "sizeKB": 66,
+        "width": 1280,
+        "height": 800,
+        "description": "First frame: homepage hero."
+      }
+    ],
+    "marktplaats-mcp": [
+      {
+        "path": "src/assets/projects/marktplaats-mcp/cover.jpg",
+        "sizeKB": 162,
+        "width": 1920,
+        "height": 1080,
+        "description": "Dark glow trailer frame: prompt \"Find an OLED TV under 400 near 3011 AB\", search_listings tool chip, listing cards with prices."
+      },
+      {
+        "path": "src/assets/projects/marktplaats-mcp/still-1.jpg",
+        "sizeKB": 227,
+        "width": 1600,
+        "height": 900,
+        "description": "Retro amber CRT terminal: Dutch search query, three racing-bike results, seller check \"BANK VERIFIED, ID VERIFIED, 4.9\", \"DEAL DETECTED. HAPPY HUNTING.\""
+      },
+      {
+        "path": "src/assets/projects/marktplaats-mcp/still-2.png",
+        "sizeKB": 166,
+        "width": 1720,
+        "height": 1560,
+        "description": "Landing page (marktplaats-mcp.jaspnerd.dev): pixel logo, intro, \"Use it on claude.ai in one step\" connector URL, local install commands."
+      },
+      {
+        "path": "src/assets/projects/marktplaats-mcp/icon.svg",
+        "sizeKB": 6,
+        "width": null,
+        "height": null,
+        "type": "svg",
+        "description": "Orange pixel-art logo (vector)."
+      },
+      {
+        "path": "public/media/marktplaats-mcp/loop.mp4",
+        "sizeKB": 235,
+        "width": 1280,
+        "height": 720,
+        "duration": 9.7,
+        "codec": "h264",
+        "audio": false,
+        "description": "Muted 10 s loop of the CRT trailer: query typed, tool call, results print, seller verified, \"DEAL DETECTED\". Logo outro cut."
+      },
+      {
+        "path": "public/media/marktplaats-mcp/loop.webm",
+        "sizeKB": 514,
+        "width": 1280,
+        "height": 720,
+        "duration": 9.7,
+        "codec": "vp9",
+        "audio": false,
+        "description": "VP9 version of loop.mp4."
+      },
+      {
+        "path": "public/media/marktplaats-mcp/loop-poster.jpg",
+        "sizeKB": 92,
+        "width": 1280,
+        "height": 720,
+        "description": "First frame: full CRT terminal session with DEAL DETECTED line."
+      }
+    ],
+    "courseforge": [
+      {
+        "path": "src/assets/projects/courseforge/cover.png",
+        "sizeKB": 297,
+        "width": 1600,
+        "height": 945,
+        "description": "Terminal (Catppuccin): courseforge-imscc build writes a .imscc, inspect prints JSON (Introduction to Chemistry, modules, items), \"Valid Canvas cartridge... Done\". Re-recorded in HD today."
+      },
+      {
+        "path": "src/assets/projects/courseforge/still-1.png",
+        "sizeKB": 40,
+        "width": 2400,
+        "height": 438,
+        "description": "Wide banner: pixel anvil-and-flame mark, \"courseforge\", \"from syllabus to Canvas course, forged by your AI agent\", on white."
+      },
+      {
+        "path": "src/assets/projects/courseforge/icon.svg",
+        "sizeKB": 4,
+        "width": null,
+        "height": null,
+        "type": "svg",
+        "description": "Pixel anvil-with-flame mark, cropped from the banner (vector)."
+      },
+      {
+        "path": "public/media/courseforge/loop.mp4",
+        "sizeKB": 138,
+        "width": 1280,
+        "height": 756,
+        "duration": 13.1,
+        "codec": "h264",
+        "audio": false,
+        "description": "Muted 13 s loop of the CLI demo at 2x speed: build then inspect a Canvas cartridge. Re-recorded at 1600px with the repo's own VHS tape."
+      },
+      {
+        "path": "public/media/courseforge/loop.webm",
+        "sizeKB": 337,
+        "width": 1280,
+        "height": 756,
+        "duration": 13.1,
+        "codec": "vp9",
+        "audio": false,
+        "description": "VP9 version of loop.mp4."
+      },
+      {
+        "path": "public/media/courseforge/loop-poster.jpg",
+        "sizeKB": 88,
+        "width": 1280,
+        "height": 756,
+        "description": "First frame: finished terminal session with JSON output."
+      }
+    ],
+    "nib": [
+      {
+        "path": "src/assets/projects/nib/cover.jpg",
+        "sizeKB": 235,
+        "width": 2400,
+        "height": 1668,
+        "description": "Product shot: Nib window (dark) on a purple bubble wallpaper, GET {{baseUrl}}/users with 200 OK and pretty JSON (demo data)."
+      },
+      {
+        "path": "src/assets/projects/nib/still-1.jpg",
+        "sizeKB": 130,
+        "width": 1600,
+        "height": 1098,
+        "description": "Product shot: Nib with a DemoCollection sidebar, GET /hello, JSON response with emoji and escaped strings."
+      },
+      {
+        "path": "src/assets/projects/nib/still-2.jpg",
+        "sizeKB": 144,
+        "width": 2400,
+        "height": 1500,
+        "description": "Website nib.jaspnerd.dev hero: \"Send a request. Not a signup form.\" with install/source buttons."
+      },
+      {
+        "path": "src/assets/projects/nib/icon.svg",
+        "sizeKB": 1,
+        "width": null,
+        "height": null,
+        "type": "svg",
+        "description": "Nib app icon (vector)."
+      },
+      {
+        "path": "public/media/nib/loop.mp4",
+        "sizeKB": 145,
+        "width": 1280,
+        "height": 854,
+        "duration": 12.93,
+        "codec": "h264",
+        "audio": false,
+        "description": "Muted 13 s loop cropped to the app window: send request, switch Body/Headers/Cookies/Timing tabs, response JSON. Dark UI."
+      },
+      {
+        "path": "public/media/nib/loop.webm",
+        "sizeKB": 197,
+        "width": 1280,
+        "height": 854,
+        "duration": 12.93,
+        "codec": "vp9",
+        "audio": false,
+        "description": "VP9 version of loop.mp4."
+      },
+      {
+        "path": "public/media/nib/loop-poster.jpg",
+        "sizeKB": 63,
+        "width": 1280,
+        "height": 854,
+        "description": "First frame: 200 OK users JSON response."
+      }
+    ],
+    "otterbende": [
+      {
+        "path": "src/assets/projects/otterbende/cover.jpg",
+        "sizeKB": 266,
+        "width": 2080,
+        "height": 1560,
+        "description": "Otterbende game table (green felt): two otter opponents, deck, discard and a drawn otter card, your four face-down cards glowing."
+      },
+      {
+        "path": "src/assets/projects/otterbende/still-1.jpg",
+        "sizeKB": 253,
+        "width": 2080,
+        "height": 1560,
+        "description": "Opponent turn: \"Ollie is thinking\", WISSEL power card on discard, their draw, move log."
+      },
+      {
+        "path": "src/assets/projects/otterbende/still-2.jpg",
+        "sizeKB": 178,
+        "width": 2080,
+        "height": 1560,
+        "description": "Round result modal \"Ollie takes the round\" with scores; all cards revealed face-up with otter art behind."
+      },
+      {
+        "path": "src/assets/projects/otterbende/still-3.jpg",
+        "sizeKB": 470,
+        "width": 1448,
+        "height": 1086,
+        "description": "The custom otter card deck artwork (0-9 plus power cards and card back) on white."
+      },
+      {
+        "path": "public/media/otterbende/loop.mp4",
+        "sizeKB": 577,
+        "width": 1040,
+        "height": 780,
+        "duration": 12.0,
+        "codec": "h264",
+        "audio": false,
+        "description": "Muted 12 s gameplay loop recorded live today: draw and swap, AI otters draw, swap and peek, \"Otterbende!\" knock, reveal and scores."
+      },
+      {
+        "path": "public/media/otterbende/loop.webm",
+        "sizeKB": 688,
+        "width": 1040,
+        "height": 780,
+        "duration": 12.0,
+        "codec": "vp9",
+        "audio": false,
+        "description": "VP9 version of loop.mp4."
+      },
+      {
+        "path": "public/media/otterbende/loop-poster.jpg",
+        "sizeKB": 89,
+        "width": 1040,
+        "height": 780,
+        "description": "First frame: table with a drawn otter card and \"Replace one of your cards\"."
+      }
+    ]
+  },
+  "totalKB": 30022
+}

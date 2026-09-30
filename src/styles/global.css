@@ -1,243 +1,34 @@
 @import "tailwindcss";
 
-/* ------------------------------------------------------------------
-   Design tokens — Tailwind v4, CSS-first. No tailwind.config.js.
-   Two surfaces: "lab" (dark, default) and "paper" (case-study pages).
-   ------------------------------------------------------------------ */
-
-:root {
-  /* "Violet Ink" — violet-tinted dark ground, lavender accent, gold garnish.
-     All pairs contrast-verified: ink 14.5:1, mute 7.0:1, accent 7.9:1, gold 9.4:1. */
-  --surface-bg: #1a1821;
-  --surface-elevated: #23212c;
-  --surface-ink: #eae8f0;
-  --surface-mute: #a5a2b1;
-  --surface-line: rgba(234, 232, 240, 0.14);
-  --surface-card: rgba(234, 232, 240, 0.035);
-  --surface-accent: #b7a0f8;
-  --surface-gold: #d7ba7d;
-  color-scheme: dark;
-}
-
-html[data-theme="paper"] {
-  /* warm paper + plum ink; violet deepened to hold 6:1 on the light ground */
-  --surface-bg: #f9f6f2;
-  --surface-elevated: #ffffff;
-  --surface-ink: #261f28;
-  --surface-mute: #6b6472;
-  --surface-line: rgba(38, 31, 40, 0.16);
-  --surface-card: rgba(38, 31, 40, 0.03);
-  --surface-accent: #7444b4;
-  --surface-gold: #8a6d2f;
-  color-scheme: light;
-}
+/* Tailwind v4, CSS-first. No tailwind.config.js, ever.
+   Shared base only. Each version (os / quiet / terminal) sets its own tokens
+   as CSS custom properties on its <html data-v="..."> in its own stylesheet,
+   and uses them via Tailwind's var shorthand, e.g. bg-(--bg) text-(--ink). */
 
 @theme {
-  --font-display: "Archivo Variable", system-ui, sans-serif;
-  --font-serif: "Instrument Serif", Georgia, serif;
-  --font-mono: "Spline Sans Mono Variable", ui-monospace, monospace;
-
-  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
-  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-house: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-@theme inline {
-  --color-bg: var(--surface-bg);
-  --color-elevated: var(--surface-elevated);
-  --color-ink: var(--surface-ink);
-  --color-mute: var(--surface-mute);
-  --color-card: var(--surface-card);
-  --color-accent: var(--surface-accent);
-  --color-gold: var(--surface-gold);
-}
-
-/* line color carries alpha, so expose it as a plain utility source */
-@utility border-line {
-  border-color: var(--surface-line);
-}
-
-/* ------------------------------------------------------------------
-   Base
-   ------------------------------------------------------------------ */
-
-html {
-  scroll-behavior: smooth;
-  /* clip on the root, not just body: iOS pans the root element sideways */
-  overflow-x: clip;
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus, currentColor);
+    outline-offset: 3px;
+  }
   @media (prefers-reduced-motion: reduce) {
-    scroll-behavior: auto;
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
-/* Lenis drives scrollTop per frame — native smooth scrolling fights it */
-html.lenis {
-  scroll-behavior: auto !important;
-}
-
-body {
-  background: var(--surface-bg);
-  color: var(--surface-ink);
-  font-family: var(--font-display);
-  font-variation-settings: "wdth" 100;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  overflow-x: clip;
-}
-
-::selection {
-  background: var(--surface-accent);
-  color: #1a1821;
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
-}
-
-/* ------------------------------------------------------------------
-   Type voices
-   ------------------------------------------------------------------ */
-
-.voice-display {
-  font-family: var(--font-display);
-  font-variation-settings: "wdth" 125;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  line-height: 0.92;
-  text-wrap: balance;
-}
-
-.voice-serif {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0;
-}
-
-.voice-mono {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-/* ------------------------------------------------------------------
-   Motion — reveal states exist ONLY when JS confirmed motion is ok.
-   No JS or reduced motion → content simply visible. (CLAUDE.md rule)
-   ------------------------------------------------------------------ */
-
-html.motion-ok [data-reveal] {
-  opacity: 0;
-  transform: translateY(22px);
-}
-
-.split-line {
-  display: block;
-  overflow: clip;
-}
-
-.split-line > .split-inner {
-  display: block;
-}
-
-html.motion-ok .split-line > .split-inner {
-  transform: translateY(110%);
-}
-
-/* hero atmosphere: lavender glow + faint plotting-paper dot grid */
-.hero-atmosphere {
-  background:
-    radial-gradient(
-      90rem 42rem at 78% -12%,
-      rgba(183, 160, 248, 0.13),
-      transparent 62%
-    ),
-    radial-gradient(rgba(234, 232, 240, 0.07) 1px, transparent 1px);
-  background-size:
-    auto,
-    30px 30px;
-  mask-image: linear-gradient(to bottom, black 62%, transparent);
-}
-
-/* ------------------------------------------------------------------
-   Micro-interactions (CSS-only, per Emil's rules)
-   ------------------------------------------------------------------ */
-
-.pressable {
-  transition: transform 160ms var(--ease-out-strong);
-}
-
-.pressable:active {
-  transform: scale(0.97);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .link-line {
-    background-image: linear-gradient(currentColor, currentColor);
-    background-size: 0% 1px;
-    background-position: left calc(100% - 0.05em);
-    background-repeat: no-repeat;
-    transition: background-size 240ms var(--ease-out-strong);
-  }
-
-  .link-line:hover {
-    background-size: 100% 1px;
-  }
-
-  .card-hover {
-    transition:
-      border-color 200ms ease,
-      background-color 200ms ease;
-  }
-
-  .card-hover:hover {
-    border-color: color-mix(in srgb, var(--surface-ink) 35%, transparent);
-    background-color: var(--surface-card);
-  }
-}
-
-/* ------------------------------------------------------------------
-   Case-study prose (styled by hand — no typography plugin)
-   ------------------------------------------------------------------ */
-
-.prose-case {
-  font-size: 1.0625rem;
-  line-height: 1.8;
-  color: color-mix(in srgb, var(--surface-ink) 86%, var(--surface-mute));
-  max-width: 65ch;
-}
-
-.prose-case h2 {
-  font-family: var(--font-display);
-  font-variation-settings: "wdth" 115;
-  font-weight: 750;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-  font-size: 1.05rem;
-  color: var(--surface-ink);
-  margin: 2.75rem 0 1rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--surface-line);
-}
-
-.prose-case h2::before {
-  content: "§ ";
-  color: var(--color-accent);
-}
-
-.prose-case p {
-  margin-bottom: 1.1rem;
-}
-
-.prose-case strong {
-  color: var(--surface-ink);
-  font-weight: 650;
-}
-
-.prose-case a {
-  color: var(--color-accent);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
+/* fx components read --fx-bg/--fx-ink/--fx-accent/--fx-dim from ancestors,
+   falling back to --bg/--ink/--accent/--dim (see src/lib/fx/tokens.ts). */

@@ -1,0 +1,29 @@
+---
+/** Narrated demo in a player window, with a captions track when there is one. */
+import type { CollectionEntry } from "astro:content";
+import Window from "./Window.astro";
+import { getMedia } from "../../lib/media";
+
+interface Props {
+  entry: CollectionEntry<"projects">;
+}
+const { entry } = Astro.props;
+const { demo } = getMedia(entry.id);
+---
+
+{
+  demo && (
+    <Window id={`demo-${entry.id}`} title={`${entry.data.title}, demo.mp4`} icon="film" size="xl" kind="video">
+      <div class="player">
+        <video controls playsinline preload="none" poster={demo.poster} data-demo>
+          <source src={demo.mp4} type="video/mp4" />
+          {demo.vtt && <track kind="captions" src={demo.vtt} srclang="en" label="English" default />}
+        </video>
+      </div>
+      <Fragment slot="status">
+        <span>narrated demo</span>
+        {demo.vtt && <span>captions on</span>}
+      </Fragment>
+    </Window>
+  )
+}

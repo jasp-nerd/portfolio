@@ -1,0 +1,60 @@
+---
+/**
+ * Muted looping product recording. Plays only while on screen and when motion is allowed.
+ * No JS: shows the poster (preload="none", no autoplay). Reduced motion: poster, click to play.
+ */
+import { getMedia } from "../../lib/media";
+
+interface Props {
+  slug: string;
+  /** accessible description of what the recording shows */
+  label: string;
+  class?: string;
+}
+const { slug, label, class: cls = "" } = Astro.props;
+const { loop } = getMedia(slug);
+---
+
+{
+  loop && (
+    <video
+      class:list={["fx-loop block h-full w-full object-cover", cls]}
+      data-fx="loop"
+      muted
+      loop
+      playsinline
+      preload="none"
+      poster={loop.poster}
+      aria-label={label}
+    >
+      {loop.webm && <source src={loop.webm} type="video/webm" />}
+      <source src={loop.mp4} type="video/mp4" />
+    </video>
+  )
+}
+
+<noscript>
+  <style is:inline>
+    /* without JS Chromium forces native controls + a spinner; just show the poster */
+    video[data-fx="loop"]::-webkit-media-controls { display: none !important; }
+  </style>
+</noscript>
+
+<script>
+  const still = matchMedia("(prefers-reduced-motion: reduce)");
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        const v = e.target as HTMLVideoElement;
+        if (e.isIntersecting && !still.matches) v.play().catch(() => {});
+        else v.pause();
+      }
+    },
+    { rootMargin: "200px" },
+  );
+  document.querySelectorAll<HTMLVideoElement>("video[data-fx='loop']").forEach((v) => {
+    io.observe(v);
+    // reduced motion: let people opt in by clicking
+    v.addEventListener("click", () => (v.paused ? v.play() : v.pause()));
+  });
+</script>

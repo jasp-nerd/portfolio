@@ -1,0 +1,38 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Window from "./Window.astro";
+
+interface Props {
+  jobs: CollectionEntry<"experience">[];
+}
+const { jobs } = Astro.props;
+---
+
+<Window id="work" title="work history" icon="work" size="l" kind="work">
+  <div class="work">
+    <ul class="procs">
+      {
+        jobs.map((j) => (
+          <li class="proc" data-now={j.data.now ? "" : undefined}>
+            <div class="proc-row">
+              <span class="proc-state">
+                <span class="led" aria-hidden="true" />
+                {j.data.now ? "running" : "exited"}
+              </span>
+              <h3 class="proc-org">{j.data.org}</h3>
+              <span class="proc-role">{j.data.role}</span>
+              <span class="proc-when">
+                {j.data.when}, {j.data.place.toLowerCase()}
+              </span>
+            </div>
+            <ul class="proc-points">
+              {j.data.points.map((pt) => (
+                <li>{pt}</li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Window>

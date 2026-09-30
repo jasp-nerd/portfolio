@@ -1,20 +1,70 @@
 ---
-import Base from '../layouts/Base.astro';
-import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
-import Work from '../components/Work.astro';
-import Experience from '../components/Experience.astro';
-import Skills from '../components/Skills.astro';
-import Contact from '../components/Contact.astro';
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import "@fontsource/geist-pixel";
+import "@fontsource-variable/geist";
+import "@fontsource-variable/geist-mono";
+import "../styles/os.css";
+import MenuBar from "../components/os/MenuBar.astro";
+import Wallpaper from "../components/os/Wallpaper.astro";
+import DesktopIcons from "../components/os/DesktopIcons.astro";
+import PhoneHome from "../components/os/PhoneHome.astro";
+import AboutWindow from "../components/os/AboutWindow.astro";
+import FinderWindow from "../components/os/FinderWindow.astro";
+import ProjectWindow from "../components/os/ProjectWindow.astro";
+import DemoWindow from "../components/os/DemoWindow.astro";
+import WorkWindow from "../components/os/WorkWindow.astro";
+import MailWindow from "../components/os/MailWindow.astro";
+import SystemWindows from "../components/os/SystemWindows.astro";
+import Alert from "../components/os/Alert.astro";
+import Dock from "../components/os/Dock.astro";
+import { site } from "../lib/site";
+
+const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
+const featured = projects.filter((p) => p.data.tier === "featured");
+const side = projects.filter((p) => p.data.tier === "side");
+const jobs = (await getCollection("experience")).sort((a, b) => a.data.order - b.data.order);
+const flagship = featured[0];
 ---
 
-<Base>
-  <main id="main">
-    <Hero />
-    <About />
-    <Work />
-    <Experience />
-    <Skills />
+<Base
+  v="os"
+  title="jasp.os"
+  description={`${site.name}, ${site.study}. Projects, work history and contact, on a small desktop.`}
+  themeColor="#e7e3dc"
+>
+  <Fragment slot="head">
+    <script is:inline>
+      document.documentElement.classList.add("os-live", "os-first");
+    </script>
+  </Fragment>
+
+  <a class="skip" href="#w-about">skip to about me</a>
+  <MenuBar />
+  <main class="desk">
+    <Wallpaper />
+    <DesktopIcons featured={featured} />
+    <PhoneHome featured={featured} />
+    <div class="wins">
+      <AboutWindow flagship={flagship} />
+      <FinderWindow id="projects" title="projects" icon="folder" items={featured} open z={3} />
+      {featured.map((e) => <ProjectWindow entry={e} open={e.id === flagship.id} z={e.id === flagship.id ? 2 : undefined} />)}
+      {projects.map((e) => <DemoWindow entry={e} />)}
+      <FinderWindow id="side" title="side quests" icon="folder2" items={side} />
+      {side.map((e) => <ProjectWindow entry={e} />)}
+      <WorkWindow jobs={jobs} />
+      <MailWindow />
+      <SystemWindows />
+    </div>
+    <Dock />
   </main>
-  <Contact />
+  <Alert />
+  <footer class="foot">
+    <p>{site.domain}, updated sep 2026</p>
+  </footer>
+
+  <script>
+    import { boot } from "../lib/os/desktop";
+    boot();
+  </script>
 </Base>

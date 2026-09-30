@@ -1,0 +1,49 @@
+---
+import { site } from "../../lib/site";
+import PxIcon from "./PxIcon.astro";
+
+const nav = [
+  { id: "projects", label: "projects" },
+  { id: "side", label: "side quests" },
+  { id: "work", label: "work" },
+  { id: "mail", label: "contact" },
+];
+---
+
+<header class="menubar">
+  <nav class="mb-left" aria-label="menu bar">
+    <div class="mb-menu js-only">
+      <button class="mb-j" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="jmenu" aria-label="jasp.os menu">
+        <PxIcon name="face" size={18} />
+      </button>
+      <ul id="jmenu" class="mb-drop" hidden>
+        <li><button type="button" data-open="os">about jasp.os</button></li>
+        <li class="sep" aria-hidden="true"></li>
+        <li><button type="button" data-tidy>tidy up windows</button></li>
+        <li>
+          <button type="button" data-bit aria-disabled="true">
+            <span class="mb-bit-label"><PxIcon name="lock" size={14} class="mb-lock" /><span data-bit-label>secret mode</span></span>
+            <kbd data-bit-hint>↑↑↓↓</kbd>
+          </button>
+        </li>
+        <li class="sep" aria-hidden="true"></li>
+        <li><button type="button" data-open="trash">open trash</button></li>
+      </ul>
+    </div>
+    <span class="mb-app" data-active-title>jasp.os</span>
+    <ul class="mb-links">
+      {
+        nav.map((n) => (
+          <li>
+            <a href={`#w-${n.id}`} data-open={n.id}>
+              {n.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <div class="mb-right">
+    <span class="mb-clock js-only"><time data-clock></time> {site.city.slice(0, 3).toLowerCase()}</span>
+  </div>
+</header>

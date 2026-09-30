@@ -1,0 +1,41 @@
+---
+/**
+ * A desktop/dock/app icon. Uses the project's own media icon when there is one,
+ * otherwise one of the hand-drawn 16x16 pixel bitmaps from src/lib/os/icons.ts.
+ * Always decorative: the label next to it carries the name.
+ */
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import { iconRects, type IconName } from "../../lib/os/icons";
+
+interface Props {
+  name?: IconName;
+  image?: ImageMetadata;
+  size?: number;
+  class?: string;
+}
+const { name = "doc", image, size = 48, class: cls = "" } = Astro.props;
+const rects = image ? [] : iconRects(name);
+---
+
+{
+  image ? (
+    <span class:list={["px-icon px-icon-img", cls]} style={`--s:${size}px`} aria-hidden="true">
+      <Image src={image} alt="" width={size * 2} height={size * 2} loading="eager" />
+    </span>
+  ) : (
+    <svg
+      class:list={["px-icon", cls]}
+      width={size}
+      height={size}
+      viewBox="0 0 16 16"
+      shape-rendering="crispEdges"
+      aria-hidden="true"
+      focusable="false"
+    >
+      {rects.map((r) => (
+        <rect x={r.x} y={r.y} width={r.w} height="1" style={`fill:${r.fill}`} />
+      ))}
+    </svg>
+  )
+}

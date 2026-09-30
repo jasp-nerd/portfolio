@@ -1,0 +1,30 @@
+---
+import PxIcon from "./PxIcon.astro";
+import type { IconName } from "../../lib/os/icons";
+
+const favs: { id: string; label: string; icon: IconName }[] = [
+  { id: "projects", label: "projects", icon: "folder" },
+  { id: "side", label: "side quests", icon: "folder2" },
+  { id: "about", label: "about me.txt", icon: "doc" },
+  { id: "work", label: "work history", icon: "work" },
+  { id: "mail", label: "new message", icon: "mail" },
+];
+---
+
+<nav class="dock js-only" aria-label="dock">
+  <ul class="dock-row">
+    {
+      favs.map((f) => (
+        <li>
+          <button class="dock-item" type="button" data-open={f.id} data-dock={f.id} aria-label={f.label}>
+            <PxIcon name={f.icon} size={40} />
+            <span class="dock-tip" aria-hidden="true">{f.label}</span>
+            <span class="dock-dot" aria-hidden="true"></span>
+          </button>
+        </li>
+      ))
+    }
+  </ul>
+  <span class="dock-sep" aria-hidden="true"></span>
+  <ul class="dock-row" data-dock-open></ul>
+</nav>

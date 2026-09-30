@@ -1,0 +1,52 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Window from "./Window.astro";
+import PxIcon from "./PxIcon.astro";
+import { getMedia } from "../../lib/media";
+import { PROJECT_ICON, type IconName } from "../../lib/os/icons";
+
+interface Props {
+  id: string;
+  title: string;
+  icon: IconName;
+  items: CollectionEntry<"projects">[];
+  open?: boolean;
+  z?: number;
+}
+const { id, title, icon, items, open = false, z } = Astro.props;
+---
+
+<Window id={id} title={title} icon={icon} size="l" open={open} z={z} kind="finder">
+  <div class="finder">
+    <div class="finder-head" aria-hidden="true">
+      <span>name</span><span>effort</span><span class="r">number</span>
+    </div>
+    <ul class="finder-list">
+      {
+        items.map((e) => {
+          const m = getMedia(e.id);
+          return (
+            <li>
+              <a class="finder-row" href={`#w-p-${e.id}`} data-open={`p-${e.id}`}>
+                <span class="finder-name">
+                  <PxIcon name={PROJECT_ICON[e.id] ?? "doc"} image={m.icon} size={24} />
+                  <span>
+                    <b>{e.data.title}</b>
+                    <span class="finder-one">{e.data.oneliner}</span>
+                  </span>
+                </span>
+                <span class="finder-effort">{e.data.effort}</span>
+                <span class="finder-num r">
+                  <b>{e.data.stat.value}</b> {e.data.stat.label}
+                </span>
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+  <Fragment slot="status">
+    <span>{items.length} items</span>
+  </Fragment>
+</Window>

@@ -9,16 +9,17 @@ Live at [jaspnerd.dev](https://jaspnerd.dev).
 
 - [Astro 7](https://astro.build): static output, zero-JS baseline, content collections
 - [Tailwind CSS v4](https://tailwindcss.com): CSS-first config (`@theme`, no config file)
-- [GSAP](https://gsap.com) + ScrollTrigger: scroll choreography
-- [Lenis](https://lenis.darkroom.engineering): smooth scrolling
-- Self-hosted fonts via [Fontsource](https://fontsource.org): Archivo (variable width),
-  Instrument Serif, Spline Sans Mono
+- [GSAP](https://gsap.com) Draggable + Inertia: the window manager
+- Hand-written WebGL2 for the pixel and dither effects (`src/lib/fx/`), no 3D library
+- Self-hosted fonts via [Fontsource](https://fontsource.org): Geist, Geist Mono, Geist Pixel
 
 ## Design notes
 
-The site reads as an index of shipped work. The homepage uses a dark "lab index"
-treatment: mono spec labels, case-file numbering, real traction numbers. Featured
-projects open light, paper-themed case-study pages styled like lab reports.
+The site is a small desktop OS: a dithered polder wallpaper, draggable windows,
+desktop icons, a dock, and a phone home screen on small viewports. Projects and
+work history are content collections (`src/content/`), media is found by
+convention per project slug (`src/lib/media.ts`), and every window also renders
+as a plain document without JavaScript.
 
 Motion follows [Emil Kowalski's](https://emilkowal.ski) design-engineering rules:
 strong ease-out curves, sub-300ms micro-interactions, transform/opacity only, and

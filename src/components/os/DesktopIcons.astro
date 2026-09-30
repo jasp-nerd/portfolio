@@ -1,0 +1,53 @@
+---
+import type { CollectionEntry } from "astro:content";
+import PxIcon from "./PxIcon.astro";
+import { getMedia } from "../../lib/media";
+import { PROJECT_ICON, type IconName } from "../../lib/os/icons";
+import { refusal } from "../../lib/os/labels";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  featured: CollectionEntry<"projects">[];
+}
+const { featured } = Astro.props;
+
+type Item = { id: string; label: string; icon: IconName; image?: ImageMetadata; refuse: string };
+const left: Item[] = [
+  { id: "about", label: "about me.txt", icon: "doc", refuse: refusal({ kind: "about" }) },
+  ...featured.map((e) => ({
+    id: `p-${e.id}`,
+    label: e.data.title,
+    icon: PROJECT_ICON[e.id] ?? "doc",
+    image: getMedia(e.id).icon,
+    refuse: refusal({ stat: e.data.stat, kind: "project" }),
+  })),
+];
+const right: Item[] = [
+  { id: "side", label: "side quests", icon: "folder2", refuse: refusal({ kind: "folder" }) },
+  { id: "work", label: "work history", icon: "work", refuse: refusal({ kind: "work" }) },
+  { id: "mail", label: "contact", icon: "mail", refuse: refusal({ kind: "mail" }) },
+];
+---
+
+<nav class="dicons" aria-label="desktop">
+  {
+    [left, right].map((col, c) => (
+      <ul class:list={["dcol", c === 0 ? "dcol-l" : "dcol-r"]}>
+        {col.map((it) => (
+          <li>
+            <a class="dicon" href={`#w-${it.id}`} data-open={it.id} data-refuse={it.refuse} draggable="false">
+              <PxIcon name={it.icon} image={it.image} size={44} />
+              <span class="dicon-label">{it.label}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ))
+  }
+  <div class="dtrash js-only">
+    <a class="dicon" href="#w-trash" data-open="trash" data-trash draggable="false">
+      <PxIcon name="trash" size={44} />
+      <span class="dicon-label">trash</span>
+    </a>
+  </div>
+</nav>

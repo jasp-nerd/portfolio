@@ -1,0 +1,90 @@
+---
+/**
+ * Below 768px jasp.os turns into a phone home screen: status bar, widgets with
+ * live loops, a grid of apps and a dock. Apps open the same windows as sheets.
+ */
+import type { CollectionEntry } from "astro:content";
+import PxIcon from "./PxIcon.astro";
+import LoopVideo from "../fx/LoopVideo.astro";
+import { getMedia } from "../../lib/media";
+import { PROJECT_ICON, type IconName } from "../../lib/os/icons";
+import { site } from "../../lib/site";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  featured: CollectionEntry<"projects">[];
+}
+const { featured } = Astro.props;
+const looped = featured.filter((e) => getMedia(e.id).loop).slice(0, 2);
+const loopIds = new Set(looped.map((e) => e.id));
+
+type App = { id: string; label: string; icon: IconName; image?: ImageMetadata };
+const apps: App[] = [
+  ...featured
+    .filter((e) => !loopIds.has(e.id))
+    .map((e) => ({ id: `p-${e.id}`, label: e.data.title, icon: PROJECT_ICON[e.id] ?? "doc", image: getMedia(e.id).icon })),
+  { id: "side", label: "side quests", icon: "folder2" },
+  { id: "work", label: "work", icon: "work" },
+  { id: "trash", label: "trash", icon: "trash" },
+];
+const dock: App[] = [
+  { id: "about", label: "about me", icon: "doc" },
+  { id: "projects", label: "projects", icon: "folder" },
+  { id: "mail", label: "contact", icon: "mail" },
+];
+---
+
+<div class="phone js-only">
+  <div class="phone-status" aria-hidden="true">
+    <time data-clock></time>
+    <span class="phone-sig"><span>ams</span><i class="bars"></i><i class="bat"></i></span>
+  </div>
+
+  <nav class="phone-grid" aria-label="home screen">
+    <a class="widget w-hello" href="#w-about" data-open="about">
+      <span class="w-kicker">about me</span>
+      <span class="w-big">hey, I'm {site.first}.</span>
+      <span class="w-small">AI student in {site.city.toLowerCase()}.</span>
+    </a>
+    {
+      looped.map((e, i) => (
+        <a class:list={["widget w-loop", i === 1 && "w-wide"]} href={`#w-p-${e.id}`} data-open={`p-${e.id}`}>
+          <LoopVideo slug={e.id} label={`${e.data.title}, screen recording`} />
+          <span class="w-cap">
+            <b>{e.data.title}</b>
+            <span>
+              {e.data.stat.value} {e.data.stat.label}
+            </span>
+          </span>
+        </a>
+      ))
+    }
+    {
+      apps.map((a) => (
+        <a class="app" href={`#w-${a.id}`} data-open={a.id}>
+          <span class="app-tile">
+            <PxIcon name={a.icon} image={a.image} size={40} />
+          </span>
+          <span class="app-label">{a.label}</span>
+        </a>
+      ))
+    }
+    <div class="widget w-now">
+      <span class="w-kicker">running now</span>
+      <span class="w-small">{site.now[0]}</span>
+    </div>
+  </nav>
+
+  <nav class="phone-dock" aria-label="dock">
+    {
+      dock.map((a) => (
+        <a class="app" href={`#w-${a.id}`} data-open={a.id}>
+          <span class="app-tile">
+            <PxIcon name={a.icon} size={40} />
+          </span>
+          <span class="app-label">{a.label}</span>
+        </a>
+      ))
+    }
+  </nav>
+</div>

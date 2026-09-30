@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" font-family="Geist Mono, ui-monospace, monospace">
+<rect width="1600" height="1000" fill="#f4f1ff"/>
+<line x1="150" x2="1540" y1="880.0" y2="880.0" stroke="#221c45" stroke-opacity=".12" stroke-dasharray="4 6"/>
+<text x="134" y="887.0" text-anchor="end" font-size="24" fill="#8b86a8">0</text>
+<line x1="150" x2="1540" y1="682.5" y2="682.5" stroke="#221c45" stroke-opacity=".12" stroke-dasharray="4 6"/>
+<text x="134" y="689.5" text-anchor="end" font-size="24" fill="#8b86a8">800</text>
+<line x1="150" x2="1540" y1="485.0" y2="485.0" stroke="#221c45" stroke-opacity=".12" stroke-dasharray="4 6"/>
+<text x="134" y="492.0" text-anchor="end" font-size="24" fill="#8b86a8">1600</text>
+<line x1="150" x2="1540" y1="287.5" y2="287.5" stroke="#221c45" stroke-opacity=".12" stroke-dasharray="4 6"/>
+<text x="134" y="294.5" text-anchor="end" font-size="24" fill="#8b86a8">2400</text>
+<line x1="150" x2="1540" y1="90.0" y2="90.0" stroke="#221c45" stroke-opacity=".12" stroke-dasharray="4 6"/>
+<text x="134" y="97.0" text-anchor="end" font-size="24" fill="#8b86a8">3200</text>
+<line x1="150" x2="1540" y1="99.6" y2="99.6" stroke="#5a3ff0" stroke-width="3" stroke-dasharray="10 8"/>
+<text x="1540" y="87.6" text-anchor="end" font-size="26" fill="#5a3ff0">flag at x = 3161</text>
+<text x="150.0" y="920" text-anchor="middle" font-size="24" fill="#8b86a8">0k</text>
+<text x="497.5" y="920" text-anchor="middle" font-size="24" fill="#8b86a8">250k</text>
+<text x="845.0" y="920" text-anchor="middle" font-size="24" fill="#8b86a8">500k</text>
+<text x="1192.5" y="920" text-anchor="middle" font-size="24" fill="#8b86a8">750k</text>
+<text x="1540.0" y="920" text-anchor="middle" font-size="24" fill="#8b86a8">1000k</text>
+<text x="845" y="970" text-anchor="middle" font-size="24" fill="#8b86a8">timesteps</text>
+<text x="40" y="485" transform="rotate(-90 40 485)" text-anchor="middle" font-size="24" fill="#8b86a8">distance reached (x position, mean of 4 seeds)</text>
+<path d="M167.4,758.9 L202.1,747.6 L236.9,735.0 L271.6,731.4 L306.4,730.4 L341.1,723.3 L375.9,716.4 L410.6,712.4 L445.4,708.4 L480.1,705.1 L514.9,702.5 L549.6,700.1 L584.4,699.0 L619.1,695.4 L653.9,698.3 L688.6,694.5 L723.4,693.2 L758.1,690.8 L792.9,688.3 L827.6,686.0 L862.4,684.8 L897.1,684.4 L931.9,686.7 L966.6,689.1 L1001.4,693.1 L1036.1,691.8 L1070.9,686.0 L1105.6,684.1 L1140.4,684.1 L1175.1,684.2 L1209.9,681.2 L1244.6,679.3 L1279.4,680.6 L1314.1,679.0 L1348.9,678.7 L1383.6,676.7 L1418.4,676.0 L1453.1,678.3 L1487.9,679.7 L1522.6,682.4" fill="none" stroke="#b8a9ff" stroke-width="6" stroke-linejoin="round"/>
+<path d="M167.4,715.4 L202.1,709.2 L236.9,700.3 L271.6,693.6 L306.4,691.1 L341.1,692.1 L375.9,692.2 L410.6,691.9 L445.4,686.1 L480.1,682.9 L514.9,682.4 L549.6,686.9 L584.4,688.5 L619.1,686.6 L653.9,682.9 L688.6,681.1 L723.4,681.5 L758.1,682.4 L792.9,683.2 L827.6,682.5 L862.4,680.8 L897.1,678.6 L931.9,677.1 L966.6,675.0 L1001.4,674.8 L1036.1,671.2 L1070.9,670.4 L1105.6,671.6 L1140.4,673.5 L1175.1,675.6 L1209.9,669.7 L1244.6,667.8 L1279.4,661.2 L1314.1,661.2 L1348.9,660.4 L1383.6,660.4 L1418.4,658.4 L1453.1,659.6 L1487.9,660.6 L1522.6,662.9" fill="none" stroke="#5a3ff0" stroke-width="6" stroke-linejoin="round"/>
+<text x="150" y="52" font-size="34" font-weight="700" fill="#221c45">super mario bros 1-1: PPO vs A3C</text>
+<rect x="150" y="100" width="24" height="8" fill="#5a3ff0"/><text x="184" y="110" font-size="26" fill="#221c45">PPO</text>
+<rect x="270" y="100" width="24" height="8" fill="#b8a9ff"/><text x="304" y="110" font-size="26" fill="#221c45">A3C</text>
+</svg>

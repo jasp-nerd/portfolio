@@ -1,0 +1,12 @@
+---
+/** The one system alert (trash refusals, the windmill). Lives outside the window layer. */
+import PxIcon from "./PxIcon.astro";
+---
+
+<div class="alert" id="os-alert" role="alertdialog" aria-modal="true" aria-labelledby="os-alert-msg" hidden>
+  <div class="alert-box">
+    <PxIcon name="stop" size={48} />
+    <p id="os-alert-msg" class="alert-msg"></p>
+    <button class="btn btn-primary alert-ok" type="button">ok</button>
+  </div>
+</div>
